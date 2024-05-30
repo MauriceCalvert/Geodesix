@@ -1,0 +1,31 @@
+#Method	Name:String	Type:Type	Description:String	Returns:String	
+#Parameter	Name:String	Type:Type	Description:String	Default:Object	Choices:List
+Method	drawCircle	Integer	Draw a circle on the map		
+Parameter	id	Integer	Identifier	Unique()	
+Parameter	latitude	Double	Latitude of centre		{-90,90}
+Parameter	longitude	Double	Longitude of centre		{-180,180}
+Parameter	radius	Double	Radius in meters		{1}
+Parameter	title	String	Hover label		
+Parameter	strokeColor	String	Line colour	#000000	
+Parameter	strokeOpacity	Double	Line opacity	1	{0,1}
+Parameter	strokeWeight	Double	Line weight	1	{0,10}
+Parameter	fillColor	String	Fill colour	#000000	
+Parameter	fillOpacity	Double	Fill opacity	0	{0,1}
+					
+Method	drawLine	Integer	Draw a line on the map	Unique identifier of the line	
+Parameter	id	Integer	Identifier	Unique()	
+Parameter	origlatitude	Double	Latitude of origin		{-90,90}
+Parameter	origlongitude	Double	Longitude of origin		{-180,180}
+Parameter	destlatitude	Double	Latitude of destination		{-90,90}
+Parameter	destlongitude	Double	Longitude of destination		{-180,180}
+Parameter	title	String	Hover label		
+Parameter	strokeColor	String	Line colour	#000000	
+Parameter	strokeOpacity	Double	Line opacity	1	{0,1}
+Parameter	strokeWeight	Double	Line weight	1	{0,10}
+					
+Method	drawMarker	Integer	Draw a marker on the map	Unique identifier of the marker	
+Parameter	id	Integer	Identifier	Unique()	
+Parameter	latitude	Double	Latitude of centre		{-90,90}
+Parameter	longitude	Double	Longitude of centre		{-180,180}
+Parameter	title	String	Hover label		
+Parameter	size	Integer	Icon size in pixels	24	

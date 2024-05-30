@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geodesix Help - Tips and Tricks</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header>
+            <titles>
+                Geodesix Help - Tips and Tricks
+            </titles>
+            <hr class="titleshr" />
+        </header>
+
+        <main>
+            <h1>FAQs, things to know, cryptic messages, ...</h1>
+            <table>
+                <tr>
+                    <td>Generalisations</td>
+                    <td>
+                        When you search in Google Maps, you may receive several results.
+                        For example searching for 'Maloja 7516, Stampa, Switzerland' might return
+                        'Maloja 7516, Stampa, Switzerland' and '7516, Switzerland'.
+                        Geodesix filters out these ambiguities automatically.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Caching</td>
+                    <td>
+                        When Geodesix requests information from Google Maps, the results are cached,
+                        because a round-trip to Google is very time-consuming and Excel will re-request the
+                        data every time formulas are re-calculated.
+                        This cache, one for Geocode requests and one for Travel requests,
+                        are stored in very-hidden worksheets in the workbook. Thus, when the workbook is shared
+                        no further requests are made to Google Maps.
+                    </td>
+                </tr>
+                <tr>
+                    <td>What's this 'Quota Exceeded' message ?</td>
+                    <td>
+                        This indicates that the maximum number of requests allowed by Google Maps per 24 hours have been exceeded.
+                        Nothing can be done; wait 24 hours.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nothing was drawn, worksheet ... should have 'Latitude' and a 'Longitude' fields ?</td>
+                    <td>
+                        To display a map, the worksheet must have at least a Latitude and a Longitude column,
+                        both of which must be within the the first 10 rows and the first 25 columns.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Geodesix functions won't work until you supply an API key!</td>
+                    <td>
+                        There is no valid API Key. See
+                        <a href="apikey.html">apikey.html</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Result range must be 1 or 2 cells</td>
+                    <td>
+                        The formula requires either a single results cell or 2 cells.
+                        Select 2 cells, type the formula and confirm with Control+Shift+Enter
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        What is Chopes?
+                    </td>
+                    <td>
+                        Chopes Beer is a ficticious beer company.
+                        "Chope", pronounced 'shop', is Swiss French slang for a half-litre tankard of beer.
+                        The name is derived from the Alsacien <a href="https://fr.wikipedia.org/wiki/Chope"><em>schoppe</em></a> "a big beer glass".
+                    </td>
+                </tr>
+                <tr>
+                    <td>No results! Is [template] correct for [filename]? Are the Skip filters too broad?</td>
+                    <td>
+                        The file to import was processed but no rows satisfied the conditions.
+                        Either the template doesn't correspond to the file (and no fields matched the template), or the Skip conditions are to broad.
+                    </td>
+                </tr>
+            </table>
+        </main>
+    </div>
+</body>
+</html>

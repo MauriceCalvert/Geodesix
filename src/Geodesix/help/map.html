@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geodesix Help - Map Pane</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header>
+            <titles>
+                Geodesix Help - Map Pane
+            </titles>
+            <hr class="titleshr" />
+        </header>
+
+        <main>
+            <h1>The Map Pane</h1>
+            <p>
+                Displays maps that are generated automatically from the contents of a worksheet
+                that have a <a href="activityvisit.html">specific format</a>.
+            </p>
+            <div><img src="mappane.jpg" /></div>
+
+            <h1>Controls</h1>
+            <p>
+                The icons at the top control the content and format of the map.
+            </p>
+            <table>
+                <tr>
+                    <td>
+                        <img src="mapstyle.jpg" />
+                    </td>
+                    <td>
+                        Selects the Map style. In addition to the standard styles, there is a minimal style which
+                        is useful for focussing on the annotations drawn on the map, rather than the map itself.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="mapcopy.jpg" />
+                    </td>
+                    <td>
+                        <span>
+                            Copies the map image to the clipboard. To avoid copying the tooltip text, use Control&#8209;C
+                            rather than clicking on the icon.
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="mapzoom.jpg" />
+                    </td>
+                    <td>
+                        <span>
+                            Zoom in/out
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="mapfind.jpg" />
+                    </td>
+                    <td>
+                        Searches for a place. Enter either a name "The Taj Mahal" or a pair of coordinates "46.172214,3.161782".
+                        The target will be highlighted with a push-pin.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="mapsheet.jpg" />
+                    </td>
+                    <td>
+                        Draw the map of the chosen sheet. Selecting blank displays the default map.
+                        Re-selecting the same sheet creates a fresh map using the latest updates to the sheet.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="maprefresh.jpg" />
+                    </td>
+                    <td>
+                        Refreshes the map, which is re-drawn without interim modifications to the sheet.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="mapzoomvalue.jpg" />
+                    </td>
+                    <td>
+                        Displays the current Zoom.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="mapquadrant.jpg" />
+                    </td>
+                    <td>
+                        Sets the quadrant where the map is displayed relative to the worksheet: Left, Right, Top, Bottom.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="mapurl.jpg" />
+                    </td>
+                    <td>
+                        Displays the address bar, turning the Map Pane into a standard browser page.
+                        The close icon returns to the map pane.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="mapclose.jpg" />
+                    </td>
+                    <td>
+                        When displaying the address bar, returns to the map pane. When displaying the
+                        map pane, hides it.
+                    </td>
+                </tr>
+            </table>
+
+            <h1>Interacting with the map</h1>
+            <p>The map can be panned by dragging and zoomed with the scroll wheel.</p>
+            <p>
+                Right-clicking puts the Latitude,Longitude in the Find field and
+                adds the Latitude and Longitude in the next free row of the worksheet.
+            </p>
+            <p>
+                In this example, the 4 corners of Central Park were clicked and the Geodesix Area
+                function calculates the area of the park in m&#xB2;. (An acre is 4046.86 square metres):
+            </p>
+            <img src="centralpark.jpg" />
+            <p>The error is a modest 2%</p>
+        </main>
+    </div>
+</body>
+</html>

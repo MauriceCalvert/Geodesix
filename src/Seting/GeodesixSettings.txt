@@ -1,0 +1,27 @@
+# Name	Type	 Hidden	Default	Description	 Values
+APIKey	string	True		Google Maps API key	
+CultureCheck	string	False	Never	Check Windows and Office culture compatibility	'Never','Language','Culture'
+Debugging	boolean	True	False	Yup, debugging	
+DirectionsURL	string	True	https://maps.googleapis.com/maps/api/directions/json?&sensor=false	API for Google Directions requests	
+ExportFile	string	True		Last folder/file exported to	
+Frames	string	True		Form positions	
+ForceUSCulture	boolean	False	False	Force comma separator for lists and numbers	'True','False'
+GeocodeURL	string	True	https://maps.google.com/maps/api/geocode/json?&sensor=false	API for Google Directions requests	
+ImportFile	string	True			
+ImportFolder	string	True			
+Installed	boolean	True	False		
+Language	string	False	en	Force Google Map language: See https://developers.google.com/admin-sdk/directory/v1/languages	GoogleLanguages()
+LargeIcons	boolean	False	True	Show large icons in the ribbon	'True','False'
+Libraries	string	True	geometry		
+LogLevel	string	True	Warn	Default Log Level	'Trace','Debug','Info','Warn','Error','Fatal'
+Minify	boolean	True	True	Minify javascript & css	'True','False'
+MapStyle	string	False	roadmap	Default map style	'minimal','hybrid','roadmap','satellite','terrain'
+RealTimeSet	boolean	True	False		'True','False'
+RegexTimeout	integer	False	100	Timeout while parsing regular expressions in milliseconds	'10 5000'
+Region	string	False	us	Region bias for searches: ISO-3166-1 code	GoogleRegions()
+StartLat	double	False	42	Initial map centre latitude	'-90 90'
+StartLong	double	False	19	Initial map centre longitude	'-180 180'
+StartZoom	integer	False	4	Initial map Zoom	'0 16'
+TemplateName	string	True			
+WebTimeout	integer	False	10000	Timeout for web requests to Google in milliseconds	'10 10000'
+Welcome	boolean	True	False		

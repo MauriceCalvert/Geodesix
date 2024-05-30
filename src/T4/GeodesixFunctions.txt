@@ -1,0 +1,52 @@
+#Method	Name:String	Type:Type	Description:String	Returns:String	
+#Parameter	Name:String	Type:Type	Description:String	Default:Object	Choices:List
+Method	addressbar	Boolean	Show/Hide the address bar	True if address bar is visible	
+Parameter	show	Boolean	Blank=Just get status. True=Show it. False=Hide it		{"","True","False"}
+					
+Method	clicked	String	Get the location clicked on the map	Lat,Lon	
+					
+Method	default		Show the default map		
+					
+Method	help	Boolean	Get/Set the help being displayed		
+Parameter	show	Boolean	Blank=Just get visibility. True=Show it. False=Hide it		{"","True","False"}
+					
+Method	language	String	Get/Set the current GoogleMap language		
+Parameter	language	String	See https://developers.google.com/admin-sdk/directory/v1/languages		
+					
+Method	navigate		Display a webpage in the Geodesix pane		
+Parameter	URL	String	URL of webpage to display		
+					
+Method	overlay	Boolean	Get/Set the visibility of a previously-drawn overlay		
+Parameter	ID	Integer	ID number of overlay		{0}
+Parameter	show	Boolean	Blank=Just get visibility. True=Show it. False=Hide it		{"","True","False"}
+					
+Method	position	String	Get/Set the docking position of the map pane		
+Parameter	quadrant	String	Quadrant in which to display. Blank=just get quadrant		{"Centre","Top","Bottom","Left","Right"}
+					
+Method	preference	String	Get/Set the value of a preference	Current preference	
+Parameter	name	String	Name of preference		MySettings.Names
+Parameter	value	String	New value to set. Blank=just get current value		
+					
+Method	programfolder	String	Get the path of the Geodesix installation	Path	
+					
+Method	regextimeout	Integer	Get/Set the regular expression timeout	milliseconds	
+Parameter	timeout	Integer	Timeout in milliseconds. Blank=just get value		{10,5000}
+					
+Method	regionbias	String	Get/Set the region bias for searches	ISO-3166 code	
+Parameter	region	Integer	ISO-3166-1 region code. Blank=just get current value		
+					
+Method	showlocation		Show a place on the map		
+Parameter	place	String	Name of a place or a lat,lon		
+					
+Method	showsheet		Display the map for a worksheet		
+Parameter	sheet	String	Worksheet name		
+					
+Method	taskpanemenu	Boolean	Get/Set the task pane menu visibility		
+Parameter	show	Boolean	Blank=Just get visibility. True=Show it. False=Hide it		{"","True","False"}
+					
+Method	url	String	Get the URL currently displayed	Path or URL	
+					
+Method	zoomToContent	String	Zoom the map to fit the current overlays		
+					
+					
+					

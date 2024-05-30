@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geodesix Help - Worksheet Formats</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header>
+            <titles>
+                Geodesix Help - Worksheet Formats
+            </titles>
+            <hr class="titleshr" />
+        </header>
+
+        <main>
+            <p>In order for worksheets to automatically draw maps, each row of the sheet represents either <b>Visit</b> to a single place, or an <b>Activity</b> a journey from A to B.</p>
+            <p>To display these on a map, the worksheet needs to have Latitude and Longitude columns.</p>
+            <h1>Visit</h1> has a single Latitude and Longitude</p>
+            <div>
+                <img src="visit.jpg" />
+            </div>
+            <p>
+                By default, as shown here, lines are drawn from one visit to the next.
+                This can be suppressed by setting the StrokeWeight or StrokeOpacity to zero with the
+                <a href="drawing.html">drawing tools</a>.
+            </p>
+
+            <h1>Activity</h1> has an origin: <b>LatitudeA</b>, <b>LongitudeA</b> and a desination <b>LatitudeB</b>, <b>LongitudeB</b>
+            </p>
+            <div>
+                <img src="activity.jpg" />
+            </div>
+            <p>It is also possible to draw lines between activities by using Latitude and Longitude in addition to LatitudeA, LongitudeA, LatitudeB and LongitudeB.</p>
+        </main>
+    </div>
+</body>
+</html>

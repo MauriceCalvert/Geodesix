@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geodesix Help - Template Editor</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header>
+            <titles>
+                Geodesix Help - Template Editor
+            </titles>
+            <hr class="titleshr" />
+        </header>
+
+        <main>
+            <h1>Creating a new template to import structured files (JSON/XML)</h1>
+            <p>
+                Open the <a href="importfile.html">Import File</a> dialog.
+            </p>
+            <p>
+                Select a single file, which will be used as a sample to build the template.
+                Select an existing template to modify or
+                leave the <monospace>&lt;new&gt;</monospace> template and click Edit to start the template editor.
+            </p>
+            <img src="templateeditor.jpg" />
+            <p>
+                The sample file is displayed as a tree in the left panel.
+                This example used <a href="takeout.json">takeout.json</a> and the template <monospace>TakeOutActivity</monospace>.
+                The <monospace>Sample...</monospace> button
+                allows different sample files to be loaded, to check against the template being edited.
+                The tree is a subset that shows only a few examples of each unique node in the tree.
+            </p>
+            <p>
+                The tree has <em>branches</em> (Root, timelineObjects, [0], placeVisit, location, ...) and <em>leaves</em>
+                that have values (latitudeE7, longitudeE7, placeId, ...)
+            </p>
+            <p>
+                The right panel is used to define how the data will be transformed into rows in the worksheet.
+                Templates can be loaded and saved with the corresponding buttons.
+                Each Path/Expression row of the template that has <monospace>Output</monospace> selected creates a column
+                in the imported data.
+            </p>
+            <p>
+                Double-clicking a <em>leaf</em> in the tree creates a Path on the right. The selected node and
+                all nodes in the same position in the tree will be coloured blue.
+                The parent node(s) of these blue nodes are coloured red.
+                Each set of blue nodes under a red parent node will create one row in the output.
+            </p>
+            <h1>Template fields</h1>
+            <p>
+                <b>Action</b> Defines the function of this row. Actions are added by selecting from the Add dropdown at the top.
+            </p>
+            <ul>
+                <li><b>Expression</b> Defines a calculated field. The Source field contains the formula.</li>
+                <li>
+                    <b>Import</b> Imports a namespace of custom functions that can be used in expressions.
+                    Several namespaces are automatically imported:
+                    <a href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime">System.DateTime</a>,
+                    <a href="https://learn.microsoft.com/en-us/dotnet/api/system.math">System.Math</a> and
+                    <a href="https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-8.0">System.String</a>.
+                    <a href="templateformulas.html">Details</a>.
+                </li>
+                <li><b>Skip</b> The Source field is a boolean formula. If it evaluates to True, the current row being output is skipped.</li>
+                <li>
+                    <b>
+                        Sort
+                    </b> Defines the field on which the output will be sorted, A-Z.
+                    When multiple files are being imported, the results are sorted all together.
+                </li>
+            </ul>
+            <p>
+                <b>Name</b> Defines the name of the column.<br />
+                <indent>
+                    When parsing the data, the previous value of each expression is available
+                    in a field with the same name, prefixed by an underscore.
+                    For example, if there is a DateTime field called Timestamp, a field called _Timestamp
+                    will exist with the previous value. This could be used to calculate an interval or distance
+                    for use in a Skip condition.
+                </indent>
+            </p>
+            <p>
+                <b>Output</b> Determines if this row is included in the output or not.
+            </p>
+            <p>
+                <b>Source</b> For Paths, the path in the tree. For expressions and skips, a
+                <a href="templateformulas.html">formula</a>.
+            </p>
+            <p>
+                <b>Value</b> A sample value for paths, the result for skips and expressions.
+            </p>
+            <p>
+                <b>Type</b> The data type inferred from the value, which determine how the data is
+                formatted when it is imported into Excel.
+                <br />
+                <indent>
+                    <b>N.B.</b> The type is determined by the value
+                    of the leaf that was clicked and it must be consistent. If the type is numeric (integer, double, ...)
+                    and there are non-numeric values in the data, the import will fail.
+                </indent>
+            </p>
+            <h1>Testing the template</h1>
+            <p>The <monospace>Preview</monospace> button extracts the data and displays it in a new window:</p>
+            <img src="templatepreview.jpg" />
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# svg - This is a tab-delimited file
+# Rule type	Name	Source	
+Notes	"{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2057{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+RulePath	style	String	True	svg.path[*].@style	font-size:12;stroke:none;stroke-width:0.979268;stroke-opacity:0.986014;fill:#a4c9ee;fill-opacity:0.7;
+RulePath	lat	Double	True	gpx.trk.trkseg[*].trkpt[*].@lat	1
+RulePath	lon	String	True	gpx.trk.trkseg[*].trkpt[*].@lon	aa
+RulePath	ele	Double	True	gpx.trk.trkseg[*].trkpt[*].ele	490
+RulePath	time	DateTime	True	gpx.trk.trkseg[*].trkpt[*].time	29/02/2024 07:53:37
+RulePath	sttemperature	Double	True	gpx.metadata.extensions.s2t:temperature	6.47

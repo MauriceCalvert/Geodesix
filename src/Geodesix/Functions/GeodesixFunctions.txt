@@ -1,0 +1,46 @@
+#Method	Name:String	Type:Type	Description:String	Returns:String	Example:String
+#Parameter	Name:String	Type:Type	Description:String	Default:Object	Choices:List
+Method	clicked	String	Get the location clicked on the map	Lat,Lon	'=Geodesix("clicked") = "40.4131629,-4.0273437"
+					
+Method	default		Show the default map		'=Geodesix("default")
+					
+Method	language	String	Get/Set the current GoogleMap language	2-Letter language code	'=Geodesix("language", "") = "EN"
+Parameter	language	String	See https://developers.google.com/admin-sdk/directory/v1/languages		
+					
+Method	mode	String	Type of page being displayed in the Map Pane	Map, Browser or Hidden	'=Geodesix("mode", "") = "Map"
+Parameter	mode	String	Blank=Just get the mode. Display the map, the browser, or hide the pane		
+					
+Method	navigate		Display a webpage in the Geodesix pane	URL	'=Geodesix("navigate", "http://www.google.com") = "www.google.com"
+Parameter	URL	String	URL of webpage to display		
+					
+Method	overlay	Boolean	Get/Set the visibility of a previously-drawn overlay	True or False	'=Geodesix("overlay", "12") = True
+Parameter	ID	Integer	ID number of overlay		{0}
+Parameter	show	Boolean	Blank=Just get visibility. True=Show it. False=Hide it		{"","True","False"}
+					
+Method	position	String	Get/Set the docking position of the map pane	Left, Right, Center, Bottom	=Geodesix("position") = "Right"
+Parameter	quadrant	String	Quadrant in which to display. Blank=just get quadrant		{"Centre","Top","Bottom","Left","Right"}
+					
+Method	setting	String	Get/Set the value of a setting	Current setting	'=Geodesix("preference", "StartLat") = 42
+Parameter	name	String	Name of preference		Settings.Names
+Parameter	value	String	New value to set. Blank=just get current value		
+					
+Method	programfolder	String	Get the path of the Geodesix installation	Path	'=Geodesix("programfolder") = "C:\Program Files (x86)\Geodesix\Geodesix"
+					
+Method	regextimeout	Integer	Get/Set the regular expression timeout	milliseconds	'=Geodesix("regextimeout") = 15
+Parameter	timeout	Integer	Timeout in milliseconds. Blank=just get value		{10,5000}
+					
+Method	region	String	Get/Set the region bias for searches	ISO-3166 code	'=Geodesix("region") = "us"
+Parameter	region	Integer	ISO-3166-1 region code. Blank=just get current value		
+					
+Method	showlocation		Show a place on the map		'=Geodesix("showlocation", "Helsinki")
+Parameter	place	String	Name of a place or a lat,lon		
+					
+Method	showsheet		Display the map for a worksheet		'=Geodesix("showsheet", "Home")
+Parameter	sheet	String	Worksheet name		
+					
+Method	url	String	Get the URL currently displayed	Path or URL	'=Geodesix("url") = "C:\Users\YourName\AppData\Local\Geodesix\geocoder.htm"
+					
+Method	zoomToContent	String	Zoom the map to fit the current overlays		'=Geodesix("ZoomToContent")
+					
+					
+					

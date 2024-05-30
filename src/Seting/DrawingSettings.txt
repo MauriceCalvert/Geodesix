@@ -1,0 +1,20 @@
+# Name	Type	 Hidden	Default	Description	 Values
+align	string	False	Centre	Alignment of icons	'Centre','Top','Bottom','Left','Right'
+arrow	string	False	Expand_Less	Material Symbol for arrows. Use underscores for spaces!	
+arrowColor	string	False	Blue	Border colour of arrows on lines	
+arrowSize	double	False	6	Size of the arrows on lines	'1'
+icon	string	False	$Push_Pin	Marker icon URL or Material Symbol - use underscores for spaces!	
+iconColor	string	False	Red	Color of icons	
+iconSize	double	False	24	Size of icons in pixels	'1'
+lineTitle	string	False		The text displayed when hovering over a line	
+strokeColor	string	False	Red	Colour of lines between markers	
+strokeOpacity	double	False	1	Opacity of lines between markers	'0 1'
+strokeWeight	double	False	1	Width of lines between markers in pixels	'0'
+symbols	string	False	outlined	See https://fonts.google.com/icons	'outlined','rounded','sharp'
+title	string	False		The text displayed when hovering over a marker	
+					
+					
+					
+					
+					
+					

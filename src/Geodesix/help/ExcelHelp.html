@@ -1,0 +1,298 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Geodesix Help - Excel Functions</title>
+     <meta charset="utf-8">
+     <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+     <div class="wrapper">
+         <header>
+             <titles>
+                 Geodesix Help - Excel Functions
+             </titles>
+             <hr class="titleshr" />
+         </header>
+         <main>
+<p id="top">Jump to&nbsp; <a href=#Area>Area</a>&nbsp; <a href=#Azimuth>Azimuth</a>&nbsp; <a href=#Color>Color</a>&nbsp; <a href=#Displace>Displace</a>&nbsp; <a href=#Distance>Distance</a>&nbsp; <a href=#DMS>DMS</a>&nbsp; <a href=#Draw>Draw</a>&nbsp; <a href=#Formulae>Formulae</a>&nbsp; <a href=#Geocode>Geocode</a>&nbsp; <a href=#Geodesix>Geodesix</a>&nbsp; <a href=#GeoReverse>GeoReverse</a>&nbsp; <a href=#Heat>Heat</a>&nbsp; <a href=#JavaScript>JavaScript</a>&nbsp; <a href=#PlusCode>PlusCode</a>&nbsp; <a href=#Regex>Regex</a>&nbsp; <a href=#TimeOffset>TimeOffset</a>&nbsp; <a href=#TimeZone>TimeZone</a>&nbsp; <a href=#Travel>Travel</a></p>
+<h1 id="Area">Area <normal>function</normal></h1>
+<indent>Get the area of a polygon.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Area(points)</monospace></indent>
+<h2>Returns</h2><returns>Double, Square metres.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>points</td><td>Range</td><td>A N*2 array of Latitudes and Longitudes. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=Area({{48.8577953, 2.2919178}, {48.8601066, 2.2951631}, {48.8538506, 2.3047225}, {48.8516625, 2.3014853}}) = 339422.50</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="Azimuth">Azimuth <normal>function</normal></h1>
+<indent>Get the bearing from one place to another.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Azimuth(originlat, originlong, destlat, destllong)</monospace></indent>
+<h2>Returns</h2><returns>Double, Bearing or a 2-cell array initial and final bearing.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>originlat</td><td>Double</td><td>Latitude of origin. Must be between -90 and 90.</td></tr>
+<tr><td>originlong</td><td>Double</td><td>Longitude of origin. Must be between -180 and 180.</td></tr>
+<tr><td>destlat</td><td>Double</td><td>Latitude of destination. Must be between -90 and 90.</td></tr>
+<tr><td>destllong</td><td>Double</td><td>Longitude of destination. Must be between -180 and 180.</td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=Azimuth(48.856614, 2.3522219, 43.296482, 5.36978) = 153.208</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="Color">Color <normal>function</normal></h1>
+<indent>Convert a Color to hexadecimal.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Color(Color, format)</monospace></indent>
+<h2>Returns</h2><returns>String, Hexadecimal Color.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>Color</td><td>String</td><td>A Color name or 6-character hex Color code. </td></tr>
+<tr><td>format</td><td>String</td><td>A combination of letters #ARGB. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=Color("LightSteelBlue", "rgb") = "B0C4DE"</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="Displace">Displace <normal>function</normal></h1>
+<indent>Find a point that is offset by a bearing and a distance.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Displace(latitude, longitude, bearing, distance)</monospace></indent>
+<h2>Returns</h2><returns>Double, LatLon or a 2-cell array lat lon.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>latitude</td><td>Double</td><td>Latitude of origin. Must be between -90 and 90.</td></tr>
+<tr><td>longitude</td><td>Double</td><td>Longitude of origin. Must be between -180 and 180.</td></tr>
+<tr><td>bearing</td><td>Double</td><td>Bearing of offset. Must be between -360 and 360.</td></tr>
+<tr><td>distance</td><td>Double</td><td>Distance to offset. Must be 0 or more.</td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=Displace(48.856614, 2.3522219, 158.208779697697, 660495.456719927/2) = 46.087160,3.9368456</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="Distance">Distance <normal>function</normal></h1>
+<indent>Get the straight-line distance between 2 points. Calculated using Vincenty's formulae, which has sub-millimeter precision.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Distance(originlat, originlong, destlat, destlLong)</monospace></indent>
+<h2>Returns</h2><returns>Double, Distance in meters.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>originlat</td><td>Double</td><td>Latitude of origin. Must be between -90 and 90.</td></tr>
+<tr><td>originlong</td><td>Double</td><td>Longitude of origin. Must be between -180 and 180.</td></tr>
+<tr><td>destlat</td><td>Double</td><td>Latitude of destination. Must be between -90 and 90.</td></tr>
+<tr><td>destlLong</td><td>Double</td><td>Longitude of destination. Must be between -180 and 180.</td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=Distance(51.508039, -0.128069, 51.5098597, -0.1342809) = 476.476</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="DMS">DMS <normal>function</normal></h1>
+<indent>Convert Degrees-Minutes-Seconds to degrees.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>DMS(dms)</monospace></indent>
+<h2>Returns</h2><returns>Double, Decimal degrees.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>dms</td><td>String</td><td>A Latitude/Longitude in Degrees° Minutes"" Seconds'. Note the symbols ° "" '. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=DMS("136° 58"" 19'") = 136.97194</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="Draw">Draw <normal>function</normal></h1>
+<indent>Draw a circle / line / marker on the map.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Draw(DrawingFunctions)</monospace></indent>
+<h2>Returns</h2><returns>String, The name of the drawn geometry.</returns>
+<p>See <a href='DrawingFunctions.html'>DrawingFunctions</a></p>
+<hr /><h1 id="Formulae">Formulae <normal>function</normal></h1>
+<indent>Gets a cell's formula with references replaced by their values.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Formulae(cell)</monospace></indent>
+<h2>Returns</h2><returns>String, Formula.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>cell</td><td>String</td><td>The cell for which the formula is desited. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=Formulae($F$29) = Geocode("postal_code", "Trafalgar square")</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="Geocode">Geocode <normal>function</normal></h1>
+<indent>Get Geodesic information.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geocode(request, place)</monospace></indent>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>request</td><td>String</td><td>The type of information to return. Must be one of "GeoFields()".</td></tr>
+<tr><td>place</td><td>String</td><td>The place for which the information is to be obtained. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=Geocode("postal_code", "Trafalgar square") = "WC2N 5DS"</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="Geodesix">Geodesix <normal>function</normal></h1>
+<indent>Functions to manipulate parameters and settings.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix(GeodesixFunctions)</monospace></indent>
+<p>See <a href='GeodesixFunctions.html'>GeodesixFunctions</a></p>
+<hr /><h1 id="GeoReverse">GeoReverse <normal>function</normal></h1>
+<indent>Perform a reverse geocode.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>GeoReverse(request, latitude, longitude)</monospace></indent>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>request</td><td>String</td><td>The type of information to return. Must be one of "GeoFields()".</td></tr>
+<tr><td>latitude</td><td>Double</td><td>Latitude. Must be between -90 and 90.</td></tr>
+<tr><td>longitude</td><td>Double</td><td>Longitude. Must be between -180 and 180.</td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=GeoReverse("formatted_address", 51.508039, -0.128069) = "Greater London, UK"</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="Heat">Heat <normal>function</normal></h1>
+<indent>Get a Color from a range of values to make a Heat-map. The colours returned are adjusted so as to appear linear to human perception.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Heat(value, minimum, maximum)</monospace></indent>
+<h2>Returns</h2><returns>String, Hexadecimal Color.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>value</td><td>Double</td><td>A value in the range minimum .. maximum. </td></tr>
+<tr><td>minimum</td><td>Double</td><td>Lowest value of range. </td></tr>
+<tr><td>maximum</td><td>Double</td><td>Highest value of range. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=Heat(5, 1, 10) = "99F0000"</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="JavaScript">JavaScript <normal>function</normal></h1>
+<indent>Execute a Javascript function on the browser in the Geodesix pane.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>JavaScript(function)</monospace></indent>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>function</td><td>String</td><td>Any Javascript function. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=JavaScript("alert('Hello world!'")</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="PlusCode">PlusCode <normal>function</normal></h1>
+<indent>Convert lat/long to/from Google PlusCodes.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>PlusCode(latitude, longitude, length)</monospace></indent>
+<h2>Returns</h2><returns>String, PlusCode.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>latitude</td><td>Double</td><td>A Latitude to convert to a PlusCode. Must be between -90 and 90.</td></tr>
+<tr><td>longitude</td><td>Double</td><td>A Longitude to convert to a PlusCode. Must be between -180 and 180.</td></tr>
+<tr><td>length</td><td>Integer</td><td>The desired length of the PlusCode. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=PlusCode("9C3XGV5C+6Q", "latitude") = 51.5080625</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="Regex">Regex <normal>function</normal></h1>
+<indent>Parse a string with a regular expression.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Regex(string, pattern, group, item)</monospace></indent>
+<h2>Returns</h2><returns>String, Parsed value.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>string</td><td>String</td><td>A string to parse. </td></tr>
+<tr><td>pattern</td><td>String</td><td>A regular expression. </td></tr>
+<tr><td>group</td><td>Integer</td><td>Index of group to retrieve: 0 ..N. </td></tr>
+<tr><td>item</td><td>Integer</td><td>Index of item in group: 0 ..N. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=Regex("22.7,33.2 44.7", "([+-]?[0-9]*(\.[0-9]*))", 1, 0) = "33.2"</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="TimeOffset">TimeOffset <normal>function</normal></h1>
+<indent>Get the UTC time offset at a Latitude and Longitude.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>TimeOffset(latitude, longitude)</monospace></indent>
+<h2>Returns</h2><returns>Double, The time offset in days, an Excel Time value, to be added to a Date. Note: When formatted as a time, Excel doesn't negative values (west of Greenwich) correctly.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>latitude</td><td>Double</td><td>Latitude. Must be between -90 and 90.</td></tr>
+<tr><td>longitude</td><td>Double</td><td>Longitude. Must be between -180 and 180.</td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=TimeOffset(-35.2757878, 149.130732) = 10:00:00</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="TimeZone">TimeZone <normal>function</normal></h1>
+<indent>Get the time zone at a Latitude and Longitude.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>TimeZone(latitude, longitude)</monospace></indent>
+<h2>Returns</h2><returns>String, The name of the time zone.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>latitude</td><td>Double</td><td>Latitude. Must be between -90 and 90.</td></tr>
+<tr><td>longitude</td><td>Double</td><td>Longitude. Must be between -180 and 180.</td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=TimeZone(-35.2757878, 149.130732) = "Australia/Sydney"</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="Travel">Travel <normal>function</normal></h1>
+<indent>Get travelling distances and times.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Travel(type, origin, destination, mode)</monospace></indent>
+<h2>Returns</h2><returns>Double, Distance in metres or Time in days.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>type</td><td>String</td><td>Distance or Duration. Must be one of "Distance", "Duration".</td></tr>
+<tr><td>origin</td><td>String</td><td>Origin, name of a place. </td></tr>
+<tr><td>destination</td><td>String</td><td>Destination, name of a place. </td></tr>
+<tr><td>mode</td><td>String</td><td>Mode of travel. Must be one of "Transit", "Driving", "Walking", "Bicycling".</td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=Travel("Duration", "Trafalgar Square", "Picadilly Circus", "Bicycling") = 00:04:53</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+         </main>
+     </div>
+</body>
+</html>
+
+

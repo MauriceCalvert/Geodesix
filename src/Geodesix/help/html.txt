@@ -1,0 +1,39 @@
+ Volume in drive D is Work
+ Volume Serial Number is D8FD-63B2
+
+ Directory of D:\projects\Geodesix 4.2.2\GeodesiX\help
+
+14/05/2024  17:56             1,592 activityvisit.html
+14/05/2024  17:56             4,794 annotations.html
+29/04/2024  14:51             1,591 apikey.html
+14/05/2024  17:56            55,965 chopes.html
+14/05/2024  17:56             5,278 drawing.html
+14/05/2024  12:38                68 DrawingFunctions.html
+14/05/2024  17:56             4,797 DrawingHelp.html
+14/05/2024  17:56            59,746 europe.html
+14/05/2024  12:37                66 ExcelFunctions.html
+14/05/2024  15:49            15,630 ExcelHelp.html
+14/05/2024  17:56             1,193 export.html
+14/05/2024  17:56             2,176 fieldpicker.html
+14/05/2024  17:56             1,128 fields.html
+14/05/2024  12:40                69 GeodesixFunctions.html
+14/05/2024  15:49             9,605 GeodesixHelp.html
+14/05/2024  17:56             3,828 gettingstarted.html
+21/02/2024  20:54               246 header.html
+14/05/2024  17:56             1,784 iconpicker.html
+14/05/2024  21:34             3,364 importfile.html
+14/05/2024  17:56             5,203 index.html
+14/05/2024  17:56             2,099 insertformula.html
+14/05/2024  23:02            62,258 japan.html
+14/05/2024  17:56             5,163 map.html
+14/05/2024  17:56             2,013 options.html
+14/05/2024  23:13             5,716 readme.html
+14/05/2024  17:56             6,908 ribbon.html
+14/05/2024  17:56             3,321 settings.html
+17/04/2024  16:48               425 Template.html
+14/05/2024  17:56             4,902 templateeditor.html
+14/05/2024  14:48               871 test.html
+08/05/2024  20:45             4,811 tricks.html
+14/05/2024  17:56             2,545 tss.html
+              32 File(s)        279,155 bytes
+               0 Dir(s)  167,548,067,840 bytes free

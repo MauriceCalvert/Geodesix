@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geodesix Help - Field Picker</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header>
+            <titles>
+                Geodesix Help - Field Picker
+            </titles>
+            <hr class="titleshr" />
+        </header>
+
+        <main>
+            <p>Insert Field prompts to add one or more fields to the header row:</p>
+            <div>
+                <img src="fieldpickerdetail.jpg" />
+            </div>
+            <p>
+                The fields on the left are the first argument of the GeoCode function;
+                they return information about a place.
+            </p>
+            <p>
+                The fields on the right are drawing overrides;
+                they allow individual rows to be drawn differently to those set in Tools&#8658;Drawing.
+            </p>
+            <p>
+                Double-clicking a field inserts it at the current cell and moves the focus
+                to the next cell on the right, to add subsequent fields. In this example, double-clicking longitude will insert "longitude" in D1
+                and make E1 the active cell.
+            </p>
+            <p>
+                Note that only one request is made to Google Maps
+                to get the information about the Sphinx, Google Maps returns a set of fields
+                which vary according to the type of place being queried.
+            </p>
+            <p>
+                As a result, the fields on the left are populated dynamically from Google Map's responses
+                and will change depending on the details available for the places that have been geocoded.
+                The unusual airport field appears in this example
+                because there was a formula<br /><code>=GeoCode("status",&nbsp;"JF&nbsp;Kennedy&nbsp;Airport")</code><br />
+                that returned "John&nbsp;F.&nbsp;Kennedy&nbsp;International&nbsp;Airport"
+                in the "airport&nbsp;establishment&nbsp;point_of_interest" field.
+            </p>
+        </main>
+    </div>
+</body>
+</html>

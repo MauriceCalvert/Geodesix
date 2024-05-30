@@ -1,0 +1,91 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Geodesix Help - Drawing functions</title>
+     <meta charset="utf-8">
+     <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+     <div class="wrapper">
+         <header>
+             <titles>
+                 Geodesix Help - Drawing functions
+             </titles>
+             <hr class="titleshr" />
+         </header>
+         <main>
+<p id="top">Jump to&nbsp; <a href=#Circle>Circle</a>&nbsp; <a href=#Line>Line</a>&nbsp; <a href=#Marker>Marker</a></p>
+<h1 id="Circle"><normal>Draw </normal>Circle<normal> function</normal></h1>
+<indent>Draw a circle on the map.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Draw('Circle', id, latitude, longitude, radius, title, strokeColor, strokeOpacity, strokeWeight, fillColor, fillOpacity)</monospace></indent>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>id</td><td>Integer</td><td>Identifier. </td></tr>
+<tr><td>latitude</td><td>Double</td><td>Latitude of centre. Must be between -90 and 90.</td></tr>
+<tr><td>longitude</td><td>Double</td><td>Longitude of centre. Must be between -180 and 180.</td></tr>
+<tr><td>radius</td><td>Double</td><td>Radius in meters. Must be 1 or more.</td></tr>
+<tr><td>title</td><td>String</td><td>Hover label. </td></tr>
+<tr><td>strokeColor</td><td>String</td><td>Line colour. </td></tr>
+<tr><td>strokeOpacity</td><td>Double</td><td>Line opacity. Must be between 0 and 1.</td></tr>
+<tr><td>strokeWeight</td><td>Double</td><td>Line weight. Must be between 0 and 10.</td></tr>
+<tr><td>fillColor</td><td>String</td><td>Fill colour. </td></tr>
+<tr><td>fillOpacity</td><td>Double</td><td>Fill opacity. Must be between 0 and 1.</td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=Draw("Circle", 1, 48.868916, 2.37793, 100000, "Paris", "#ff0000", 1, 1, "LightBlue", 0.3)</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="Line"><normal>Draw </normal>Line<normal> function</normal></h1>
+<indent>Draw a line on the map.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Draw('Line', id, origlatitude, origlongitude, destlatitude, destlongitude, title, strokeColor, strokeOpacity, strokeWeight)</monospace></indent>
+<h2>Returns</h2><returns>Integer, Unique identifier of the line.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>id</td><td>Integer</td><td>Identifier. </td></tr>
+<tr><td>origlatitude</td><td>Double</td><td>Latitude of origin. Must be between -90 and 90.</td></tr>
+<tr><td>origlongitude</td><td>Double</td><td>Longitude of origin. Must be between -180 and 180.</td></tr>
+<tr><td>destlatitude</td><td>Double</td><td>Latitude of destination. Must be between -90 and 90.</td></tr>
+<tr><td>destlongitude</td><td>Double</td><td>Longitude of destination. Must be between -180 and 180.</td></tr>
+<tr><td>title</td><td>String</td><td>Hover label. </td></tr>
+<tr><td>strokeColor</td><td>String</td><td>Line colour. </td></tr>
+<tr><td>strokeOpacity</td><td>Double</td><td>Line opacity. Must be between 0 and 1.</td></tr>
+<tr><td>strokeWeight</td><td>Double</td><td>Line weight. Must be between 0 and 10.</td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=Draw("Line", 12, 45.825284, 1.273252, 46.19155, 6.129209, "Dijon-Geneva", "Green", 1, 2)</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="Marker"><normal>Draw </normal>Marker<normal> function</normal></h1>
+<indent>Draw a marker on the map.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Draw('Marker', id, latitude, longitude, icon, title, size)</monospace></indent>
+<h2>Returns</h2><returns>Integer, Unique identifier of the marker.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>id</td><td>Integer</td><td>Identifier. </td></tr>
+<tr><td>latitude</td><td>Double</td><td>Latitude of centre. Must be between -90 and 90.</td></tr>
+<tr><td>longitude</td><td>Double</td><td>Longitude of centre. Must be between -180 and 180.</td></tr>
+<tr><td>icon</td><td>String</td><td>Icon. </td></tr>
+<tr><td>title</td><td>String</td><td>Hover label. </td></tr>
+<tr><td>size</td><td>Integer</td><td>Icon size in pixels. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=Draw("Marker", 16, 47.313063, 5.041563, "http://maps.google.com/mapfiles/kml/pal3/icon56.png", "Dijon Castle", 24)</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+         </main>
+     </div>
+</body>
+</html>
+
+

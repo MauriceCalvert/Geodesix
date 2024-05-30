@@ -1,0 +1,407 @@
+﻿' --------------------------------------------------------------------
+' Geodesix
+' Copyright © 2024 Maurice Calvert
+' 
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+' 
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+' 
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+' --------------------------------------------------------------------
+Imports System.Collections.Generic
+Imports System.ComponentModel
+Imports System.Drawing
+Imports System.Net
+Imports System.Net.Http
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+Imports System.Threading
+Imports System.Threading.Tasks
+Imports System.Windows.Forms
+Imports Geodesics
+Imports Seting
+Imports Utilities
+<ComVisible(False)>
+Friend Class Options
+
+    Private Property GOOGLEMAPS As String = "https://maps.google.com/"
+    Private WithEvents Geodesic As Geodesic
+    Private Property query As Query
+    Private Property context As SynchronizationContext = Nothing
+    Private Property Loading As Boolean = True
+    Private Property Browser As Browser
+    Private Delegate Sub Worker()
+
+    Sub New(geodesixexl As GeodesiXEXL)
+
+        InitializeComponent()
+        _GeodesixExl = geodesixexl
+
+    End Sub
+
+    Private Sub Options_Load(ByVal sender As Object, ByVal e As System.EventArgs) _
+        Handles Me.Load
+
+        If Not IsDesignerHosted(Me) Then
+            Try
+                context = SynchronizationContext.Current
+                If context Is Nothing Then
+                    context = New SynchronizationContext ' try valiantly to continue    
+                End If
+                txtHits.Text = $"{Singleton.Cache.Hits:#,##0}"
+                txtMisses.Text = $"{Singleton.Cache.Misses:#,##0}"
+                txtPercentage.Text = $"{Singleton.Cache.Hits / (Singleton.Cache.Hits + Singleton.Cache.Misses) * 100:0}%"
+                Geodesic = New Geodesic(context)
+                LoadSettings()
+                txtInstallPath.Text = GetExecutingPath()
+                Dim workbook As Object = GeodesixExl.ActiveWorkbook
+                btnPurgeCache.Enabled = Not Singleton.Cache.GetCache(workbook).Purged
+                Dim ass As Assembly = Assembly.GetExecutingAssembly
+                txtVersion.Text = ass.FullName & " at " & ass.CodeBase
+
+                If IsEmpty(Settings.APIKey) Then
+                    Browser = GeodesixExl.ShowHelp("apikey.html")
+#If Not DEBUG Then
+                    btnOK.Enabled = False
+#End If
+                Else
+                    txtKey.Text = Settings.APIKey
+                    btnOK.Enabled = True
+                End If
+                StartProxy()
+
+            Catch ex As Exception
+                HandleError(MethodBase.GetCurrentMethod().Name, ex)
+            End Try
+        End If
+        Loading = False
+    End Sub
+    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+
+        CloseBrowser()
+        Me.Close()
+
+    End Sub
+    Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
+
+        Try
+            CloseBrowser()
+            SaveSettings()
+            Close()
+
+        Catch ex As Exception
+            HandleError(MethodBase.GetCurrentMethod().Name, ex)
+        End Try
+
+    End Sub
+    Private Sub btnGo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGo.Click
+
+        Try
+            Submit(txtPlace.Text)
+
+        Catch ex As Exception
+            HandleError(MethodBase.GetCurrentMethod().Name, ex)
+        End Try
+
+    End Sub
+    Private Sub btnPurgeCache_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPurgeCache.Click
+
+        Dim workbook As Object = GeodesixExl.ActiveWorkbook
+        Singleton.Cache.Purge()
+        btnPurgeCache.Enabled = False
+
+    End Sub
+    Private Sub btnResetAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnResetAll.Click
+
+        Try
+            Settings.Clear()
+
+        Catch ex As Exception
+            HandleError(MethodBase.GetCurrentMethod().Name, ex)
+        End Try
+
+    End Sub
+    Private Sub btnValidate_Click(sender As Object, e As EventArgs) Handles btnValidate.Click
+
+        If IsEmpty(txtKey.Text) Then
+            txtMessage.Text = "Enter a key!"
+            Exit Sub
+        End If
+        Settings.APIKey = txtKey.Text
+        btnOK.Enabled = False
+        txtMessage.Text = "Validating key..."
+        Submit("London")
+
+    End Sub
+    Private Sub chkDebugging_CheckStateChanged(sender As Object, e As EventArgs) Handles chkDebugging.CheckStateChanged
+
+        If Loading Then
+            Exit Sub
+        End If
+        CustomLog.StartLogger(chkDebugging.Checked)
+        ShowInfo("Debugging will start when Excel is restarted")
+
+    End Sub
+    Private Sub CloseBrowser()
+
+        Try
+            Browser?.Close()
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+    Private Sub cmbLanguage_SelectedValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cmbLanguage.SelectedValueChanged
+
+        If Loading Then
+            Exit Sub
+        End If
+
+        Try
+            If cmbLanguage.SelectedItem IsNot Nothing Then
+                Dim language As String = cmbLanguage.SelectedItem.ToString
+                If language.Length > 2 Then
+                    language = language.Substring(0, 2)
+                End If
+                Geodesic.Language = language
+                Submit(txtPlace.Text)
+            End If
+        Catch ex As Exception
+            HandleError(MethodBase.GetCurrentMethod().Name, ex)
+        End Try
+
+    End Sub
+    Private Sub cmbRegion_SelectedValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cmbRegion.SelectedValueChanged
+
+        If Loading Then
+            Exit Sub
+        End If
+
+        Try
+            If cmbRegion.SelectedItem IsNot Nothing Then
+                Dim region As String = cmbRegion.SelectedItem.ToString
+                If region.Length > 2 Then
+                    region = region.Substring(0, 2)
+                End If
+                Geodesic.Region = region
+                Submit(txtPlace.Text)
+            End If
+        Catch ex As Exception
+            HandleError(MethodBase.GetCurrentMethod().Name, ex)
+        End Try
+
+    End Sub
+    Private Sub Email_LinkClicked(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles llEmail.LinkClicked
+
+        Try
+            Shell($"mailto:{DirectCast(sender, LinkLabel).Text}")
+
+        Catch ex As Exception
+            ShowError(ex.Message)
+        End Try
+
+    End Sub
+    Private Sub GeocodeCompleted(ByVal query As Query)
+
+        Try
+            txtGeocoder.Text = "Completed " & query.ToString
+            txtStatus.Text = query.Status
+
+            If query.Status = "OK" Then
+
+                btnOK.Enabled = True
+                txtMessage.Text = "Key validated"
+                txtMessage.ForeColor = Color.Black
+
+                txtLatitude.Text = CStr(query.Field("latitude"))
+                txtLongitude.Text = CStr(query.Field("longitude"))
+                txtAddress.Text = CStr(query.Field("formatted_address"))
+
+                ' Count installs
+                Try
+                    If Settings.Installed <> "True" Then
+
+                        Settings.Installed = "True" ' Never again!
+
+                        ' Count the number of successful installs.
+                        ' There's nothing underhand here, I simply like to know how many people actually use Geodesix.
+
+                        Using client As New HttpClient
+                            Dim parms As New Dictionary(Of String, String)
+                            parms.Add("name", "geodesix")
+                            Dim content As New FormUrlEncodedContent(parms)
+                            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12 Or SecurityProtocolType.Tls13
+                            Dim t As Task(Of HttpResponseMessage) = client.PostAsync("https://www.calvert.ch/download/geodesix.php", content)
+                            Dim r As HttpResponseMessage = t.Result
+                        End Using
+                    End If
+
+                Catch ex As Exception
+                    ' Oh well...
+
+                Finally
+
+                End Try
+            Else
+                btnOK.Enabled = False
+                txtMessage.Text = query.Status
+                txtMessage.ForeColor = Color.Red
+
+                txtMessage.Text = query.Status
+                txtMessage.ForeColor = Color.Red
+            End If
+
+            Refresh()
+
+        Catch ex As Exception
+            HandleError(MethodBase.GetCurrentMethod().Name, ex)
+        End Try
+    End Sub
+    Private Sub GeocodeStarting(ByVal q As Query) Handles Geodesic.Starting
+
+        Dim msg As String = $"Starting query {q}..."
+        txtGeocoder.Text = msg
+        txtMessage.Text = msg
+        txtLatitude.Text = ""
+        txtLongitude.Text = ""
+        txtAddress.Text = ""
+        Refresh()
+
+    End Sub
+    Private Delegate Sub CompleteCallback(ByVal GeodesicCompleted As Query)
+    Private Sub GeodesicCompleted(ByVal query As Query) _
+        Handles Geodesic.Completed
+
+        Dim cbd As New CompleteCallback(AddressOf GeocodeCompleted)
+
+        context.Post(Function() cbd.DynamicInvoke(query), Nothing)
+    End Sub
+    Private Delegate Sub StartingCallback(ByVal GeodesicCompleted As Query)
+    Private Sub GeodesicStarting(ByVal query As Query) _
+        Handles Geodesic.Starting
+
+        Dim cbd As New StartingCallback(AddressOf GeocodeStarting)
+
+        context.Post(Function() cbd.DynamicInvoke(query), Nothing)
+
+    End Sub
+    Private ReadOnly Property GeodesixExl As GeodesiXEXL
+    Private Sub Help_Requested(sender As Object, hlpevent As HelpEventArgs) Handles Me.HelpRequested
+
+        Try
+            hlpevent.Handled = True
+            GeodesixExl?.ShowHelp("options.html")
+
+        Catch ex As Exception
+            ShowError(ex.Message)
+        End Try
+
+    End Sub
+    Private Sub Help_ButtonClicked(sender As Object, e As CancelEventArgs) Handles Me.HelpButtonClicked
+
+        Try
+            e.Cancel = True
+            GeodesixExl?.ShowHelp("options.html")
+
+        Catch ex As Exception
+            ShowError(ex.Message)
+        End Try
+
+    End Sub
+    Private Sub Link_Click(sender As Object, e As EventArgs) Handles llConsole.LinkClicked, llDocumentation.LinkClicked
+
+        Try
+            OpenBrowser(DirectCast(sender, LinkLabel).Text)
+
+        Catch ex As Exception
+            ShowError(ex.Message)
+        End Try
+
+    End Sub
+    Private Sub LoadSettings()
+
+        chkDebugging.Checked = Settings.Debugging = "True"
+        chkMinify.Checked = Settings.Minify = "True"
+        cmbLanguage.Text = Settings.Language
+        cmbRegion.Text = Settings.Region
+        txtKey.Text = Settings.APIKey
+
+    End Sub
+    Private Sub SaveSettings()
+
+        Settings.Debugging = If(chkDebugging.Checked, "True", "False")
+        Settings.Minify = If(chkMinify.Checked, "True", "False")
+        Settings.Language = cmbLanguage.Text
+        Settings.Region = cmbRegion.Text
+        Settings.APIKey = txtKey.Text
+
+    End Sub
+    Private Sub StartProxy()
+
+        Try
+            ' Sort out proxy situation
+            Dim proxy As System.Net.IWebProxy
+            proxy = System.Net.WebRequest.DefaultWebProxy
+
+            If proxy Is Nothing Then
+                txtProxy.Text = "Unable to detect web proxy configuration"
+            Else
+                Dim uri As Uri
+                uri = proxy.GetProxy(New Uri(GOOGLEMAPS))
+                If uri.AbsoluteUri = GOOGLEMAPS Then
+                    txtProxy.Text = "No proxy detected, direct Internet connection"
+                    txtProxyPort.Text = ""
+                Else
+                    txtProxy.Text = uri.AbsoluteUri
+                    txtProxyPort.Text = CStr(uri.Port)
+                End If
+            End If
+
+        Catch ex As Exception
+            HandleError(MethodBase.GetCurrentMethod().Name, ex)
+        End Try
+
+    End Sub
+    Private Sub Submit(ByVal place As String)
+
+        Try
+            txtGeocoder.Text = FETCHING
+            query = New GeoQuery(place)
+            Geodesic.Run(query)
+            _Map.ShowLocation(txtPlace.Text)
+            Refresh()
+
+        Catch ex As Exception
+            HandleError(MethodBase.GetCurrentMethod().Name, ex)
+        End Try
+
+    End Sub
+    Private Sub txtKey_Validating(sender As Object, e As CancelEventArgs) Handles txtKey.Validating
+
+        If IsEmpty(txtKey.Text) Then
+            Exit Sub
+        End If
+
+        If Not txtKey.Text.StartsWith("AIzaSy") Then
+            txtMessage.Text = "That doesn't look right, API keys start with 'AIzaSy'"
+            e.Cancel = True
+        End If
+
+        If txtKey.TextLength <> 39 Then
+            txtMessage.Text = "That doesn't look right, API keys are 39 characters long"
+            e.Cancel = True
+        End If
+
+    End Sub
+
+    Private Sub Link_Click(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llDocumentation.LinkClicked, llConsole.LinkClicked
+
+    End Sub
+End Class

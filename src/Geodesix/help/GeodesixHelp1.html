@@ -1,0 +1,198 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Geodesix Help - Geodesix functions</title>
+     <meta charset="utf-8">
+     <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+     <div class="wrapper">
+         <header>
+             <titles>
+                 Geodesix Help - Geodesix functions
+             </titles>
+             <hr class="titleshr" />
+         </header>
+         <main>
+<p id="top">Jump to&nbsp; <a href=#clicked>clicked</a>&nbsp; <a href=#default>default</a>&nbsp; <a href=#language>language</a>&nbsp; <a href=#mode>mode</a>&nbsp; <a href=#navigate>navigate</a>&nbsp; <a href=#overlay>overlay</a>&nbsp; <a href=#position>position</a>&nbsp; <a href=#setting>setting</a>&nbsp; <a href=#programfolder>programfolder</a>&nbsp; <a href=#regextimeout>regextimeout</a>&nbsp; <a href=#region>region</a>&nbsp; <a href=#showlocation>showlocation</a>&nbsp; <a href=#showsheet>showsheet</a>&nbsp; <a href=#url>url</a>&nbsp; <a href=#zoomToContent>zoomToContent</a></p>
+<h1 id="clicked"><normal>Geodesix </normal>clicked<normal> function</normal></h1>
+<indent>Get the location clicked on the map.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('clicked')</monospace></indent>
+<h2>Returns</h2><returns>String, Lat,Lon.</returns>
+<hr /><h1 id="default"><normal>Geodesix </normal>default<normal> function</normal></h1>
+<indent>Show the default map.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('default')</monospace></indent>
+<hr /><h1 id="language"><normal>Geodesix </normal>language<normal> function</normal></h1>
+<indent>Get/Set the current GoogleMap language.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('language', language)</monospace></indent>
+<h2>Returns</h2><returns>String, 2-Letter language code.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>language</td><td>String</td><td>See https://developers.google.com/admin-sdk/directory/v1/languages. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>'=Geodesix("language", "") = "EN"</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="mode"><normal>Geodesix </normal>mode<normal> function</normal></h1>
+<indent>Type of page being displayed in the Map Pane.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('mode', mode)</monospace></indent>
+<h2>Returns</h2><returns>String, Map, Browser or Hidden.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>mode</td><td>String</td><td>Blank=Just get the mode. Display the map, the browser, or hide the pane. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>'=Geodesix("mode", "") = "Map"</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="navigate"><normal>Geodesix </normal>navigate<normal> function</normal></h1>
+<indent>Display a webpage in the Geodesix pane.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('navigate', URL)</monospace></indent>
+<h2>Returns</h2><returns>, URL.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>URL</td><td>String</td><td>URL of webpage to display. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>'=Geodesix("navigate", "http://www.google.com") = "www.google.com"</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="overlay"><normal>Geodesix </normal>overlay<normal> function</normal></h1>
+<indent>Get/Set the visibility of a previously-drawn overlay.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('overlay', ID, show)</monospace></indent>
+<h2>Returns</h2><returns>Boolean, True or False.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>ID</td><td>Integer</td><td>ID number of overlay. Must be 0 or more.</td></tr>
+<tr><td>show</td><td>Boolean</td><td>Blank=Just get visibility. True=Show it. False=Hide it. Must be one of "", "True", "False".</td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>'=Geodesix("overlay", "12") = True</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="position"><normal>Geodesix </normal>position<normal> function</normal></h1>
+<indent>Get/Set the docking position of the map pane.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('position', quadrant)</monospace></indent>
+<h2>Returns</h2><returns>String, Left, Right, Center, Bottom.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>quadrant</td><td>String</td><td>Quadrant in which to display. Blank=just get quadrant. Must be one of "Centre", "Top", "Bottom", "Left", "Right".</td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>=Geodesix("position") = "Right"</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="setting"><normal>Geodesix </normal>setting<normal> function</normal></h1>
+<indent>Get/Set the value of a setting.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('setting', name, value)</monospace></indent>
+<h2>Returns</h2><returns>String, Current setting.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>name</td><td>String</td><td>Name of preference. Must be one of Settings.Names.</td></tr>
+<tr><td>value</td><td>String</td><td>New value to set. Blank=just get current value. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>'=Geodesix("preference", "StartLat") = 42</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="programfolder"><normal>Geodesix </normal>programfolder<normal> function</normal></h1>
+<indent>Get the path of the Geodesix installation.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('programfolder')</monospace></indent>
+<h2>Returns</h2><returns>String, Path.</returns>
+<hr /><h1 id="regextimeout"><normal>Geodesix </normal>regextimeout<normal> function</normal></h1>
+<indent>Get/Set the regular expression timeout.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('regextimeout', timeout)</monospace></indent>
+<h2>Returns</h2><returns>Integer, milliseconds.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>timeout</td><td>Integer</td><td>Timeout in milliseconds. Blank=just get value. Must be between 10 and 5000.</td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>'=Geodesix("regextimeout") = 15</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="region"><normal>Geodesix </normal>region<normal> function</normal></h1>
+<indent>Get/Set the region bias for searches.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('region', region)</monospace></indent>
+<h2>Returns</h2><returns>String, ISO-3166 code.</returns>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>region</td><td>Integer</td><td>ISO-3166-1 region code. Blank=just get current value. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>'=Geodesix("region") = "us"</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="showlocation"><normal>Geodesix </normal>showlocation<normal> function</normal></h1>
+<indent>Show a place on the map.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('showlocation', place)</monospace></indent>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>place</td><td>String</td><td>Name of a place or a lat,lon. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>'=Geodesix("showlocation", "Helsinki")</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="showsheet"><normal>Geodesix </normal>showsheet<normal> function</normal></h1>
+<indent>Display the map for a worksheet.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('showsheet', sheet)</monospace></indent>
+<h2>Arguments</h2>
+<arguments>
+<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>sheet</td><td>String</td><td>Worksheet name. </td></tr>
+</table>
+</arguments>
+<h2>Example</h2><example>'=Geodesix("showsheet", "Home")</example>
+<p><a href="functions.xlsx">Open the example functions workbook</a></p>
+<p><a href="#top">Back to top</a></p>
+
+<hr /><h1 id="url"><normal>Geodesix </normal>url<normal> function</normal></h1>
+<indent>Get the URL currently displayed.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('url')</monospace></indent>
+<h2>Returns</h2><returns>String, Path or URL.</returns>
+<hr /><h1 id="zoomToContent"><normal>Geodesix </normal>zoomToContent<normal> function</normal></h1>
+<indent>Zoom the map to fit the current overlays.</indent>
+<h2>Syntax</h2>
+   <indent><monospace>Geodesix('zoomToContent')</monospace></indent>
+         </main>
+     </div>
+</body>
+</html>
+
+

@@ -1,0 +1,9 @@
+# nelos - This is a tab-delimited file
+# Rule type	Name	Source	
+Notes	"{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2057{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\*\\generator Riched20 16.0.17126}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+RulePath	ConnectionDate	String	True	features[*].ConnectionDate	04/04/2015
+RulePath	ConnectionTime	String	True	features[*]['ConnectionTime(GMT)']	00:49:54
+RulePath	PhoneNumber	Double	True	features[*]['IMSI/PhoneNumber']	4805555555
+RulePath	Latitude	Double	True	features[*].Latitude	33.877598
+RulePath	Longitude	Double	True	features[*].Longitude	-111.476893
+RulePath	LocationAccuracy	Double	True	features[*].LocationAccuracy	4

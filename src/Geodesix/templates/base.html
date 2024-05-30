@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<!-- base.html -->
+<head>
+    <title><#workbook#> <#worksheet#></title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        <#!geodesix.css#>
+        <#!goverlay.css#>
+    </style>
+    <script type='text/javascript'>
+        <#!initialise.js#>
+        <#!geodesix.js#>
+        let task = initMap();
+        task.then((result) => {
+            <#decorations#>
+        });
+    </script>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="matches"></div>
+    <noscript>Javascript disabled. Maps cannot be displayed.</noscript>
+    <#body#>
+</body>
+</html> <!-- end base.html -->

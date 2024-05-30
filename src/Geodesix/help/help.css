@@ -1,0 +1,186 @@
+a:link {
+    color: #0000EE;
+}
+
+a:visited {
+    color: #551A8B;
+}
+
+arguments {
+    display: block;
+    margin-left: 30px;
+    padding: 5px, 5px, 5px, 5px;
+    max-width: 760px;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font: 11pt Arial, sans-serif;
+    color: #333333;
+    overflow: hidden;
+    text-align: justify;
+}
+
+h1 {
+    font-size: 14pt;
+    font-weight: bold;
+    max-width: 760px;
+}
+
+h2 {
+    font-size: 13pt;
+    font-weight: bold;
+    max-width: 760px;
+}
+
+header {
+    height: 30px;
+    padding: 2px 4px 5px 5px;
+    /* top, right, bottom, left */
+    max-width: 800px;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #cccccc;
+    height: 1px;
+    border: none;
+}
+
+img {
+    filter: drop-shadow(2px 2px 2px #222222);
+}
+
+indent {
+    display: block;
+    margin-left: 30px;
+    padding: 5px, 5px, 5px, 5px;
+    max-width: 760px;
+}
+
+li {
+    margin: 5px 0px;
+    max-width: 760px;
+}
+
+main {
+    overflow: auto;
+    padding: 10px 10px 10px 10px;
+    /* top, right, bottom, left */
+}
+
+monospace {
+    font: 11pt Courrier, monospace;
+    max-width: 760px;
+}
+
+normal {
+    font-weight: normal;
+}
+
+ol,
+ul {
+    max-width: 760px;
+}
+
+p {
+    max-width: 760px;
+}
+
+pre {
+    font-size: 10pt;
+    max-width: 760px;
+}
+
+returns {
+    display: block;
+    margin-left: 30px;
+    padding: 5px, 5px, 5px, 5px;
+    max-width: 760px;
+}
+
+example {
+    display: block;
+    margin-left: 30px;
+    padding: 5px, 5px, 5px, 5px;
+    font: 11pt Courrier, monospace;
+    max-width: 760px;
+}
+
+span {
+    display: flex;
+    justify-content: flex-start;
+    align-items: self-start;
+    gap: 5px;
+    max-width: 760px;
+}
+
+spanv {
+    display: flex;
+    justify-content: flex-start;
+    align-items: self-start;
+    gap: 5px;
+    flex-direction: column;
+    max-width: 760px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    max-width: 760px;
+}
+
+table,
+th,
+td {
+    border: 1px solid #cccccc;
+    max-width: 760px;
+}
+
+td,
+th {
+    text-align: left;
+    padding: 4px 5px 4px 8px;
+    /* top, right, bottom, left */
+    max-width: 760px;
+}
+
+th {
+    text-align: left;
+    font-weight: bold;
+    max-width: 760px;
+}
+
+.thumb {
+    width: 8%;
+    vertical-align: middle;
+}
+
+titles {
+    display: block;
+    text-align: center;
+    font-size: 16pt;
+    font-weight: bold;
+    margin-top: 5px;
+    max-width: 800px;
+}
+
+.titleshr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #222222;
+    height: 2px;
+    border: none;
+}
+
+.wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}

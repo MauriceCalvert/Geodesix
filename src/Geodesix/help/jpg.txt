@@ -1,0 +1,58 @@
+ Volume in drive D is Work
+ Volume Serial Number is D8FD-63B2
+
+ Directory of D:\projects\Geodesix 4.2.2\GeodesiX\help
+
+14/05/2024  17:50           114,234 activity.jpg
+14/05/2024  17:50           100,442 annotations1.jpg
+14/05/2024  23:19           465,358 centralpark.jpg
+14/05/2024  17:51           444,140 chopes.jpg
+14/05/2024  17:51            78,587 displacemistake.jpg
+14/05/2024  17:51           180,775 drawing.jpg
+14/05/2024  17:51           260,119 europe.jpg
+14/05/2024  17:51           190,749 exportgeojson.jpg
+14/05/2024  17:51           184,408 exportkml.jpg
+14/05/2024  17:51           253,294 exporttabbed.jpg
+14/05/2024  17:51           153,827 fieldpicker.jpg
+14/05/2024  17:51           240,124 fieldpickerdetail.jpg
+14/05/2024  17:51           392,856 fields.jpg
+14/05/2024  17:51            10,974 geojson.jpg
+14/05/2024  17:51           149,591 googlefonts.jpg
+14/05/2024  17:51           180,529 iconpicker.jpg
+14/05/2024  17:51           242,345 iconpickerdetail.jpg
+14/05/2024  17:51            88,726 importfile.jpg
+14/05/2024  17:51           195,035 insertfunction.jpg
+14/05/2024  17:51           107,370 insertgeocode.jpg
+14/05/2024  17:51            79,962 inserttravel.jpg
+14/05/2024  23:03         1,018,221 japan.jpg
+14/05/2024  17:51             9,444 mapclose.jpg
+14/05/2024  17:51             9,416 mapcopy.jpg
+14/05/2024  17:51            15,314 mapfind.jpg
+14/05/2024  17:51           376,415 mappane.jpg
+14/05/2024  17:51           642,599 mappaneswitch.jpg
+14/05/2024  17:51            21,718 mapquadrant.jpg
+14/05/2024  17:51             8,926 maprefresh.jpg
+14/05/2024  17:51            31,039 mapsheet.jpg
+14/05/2024  17:51            34,551 mapstyle.jpg
+14/05/2024  17:51             9,897 mapurl.jpg
+14/05/2024  17:51            10,812 mapzoom.jpg
+14/05/2024  17:51            10,033 mapzoomvalue.jpg
+14/05/2024  17:51           102,462 optionsadvanced.jpg
+14/05/2024  17:51            69,089 optionsgeocoder.jpg
+14/05/2024  17:51           144,580 optionskey.jpg
+14/05/2024  17:51         1,057,319 paristour.jpg
+14/05/2024  17:51            90,512 ribbon.jpg
+14/05/2024  17:51           157,010 settingswindow.jpg
+14/05/2024  17:51           344,778 spain.jpg
+14/05/2024  17:51            10,217 tab_add.jpg
+14/05/2024  22:08           842,868 takeout.jpg
+14/05/2024  17:51           656,234 templateeditor.jpg
+14/05/2024  17:51           192,009 templatepreview.jpg
+14/05/2024  17:51           989,547 timezones.jpg
+14/05/2024  17:51            41,715 tssform.jpg
+14/05/2024  17:51            85,141 tssformula.jpg
+14/05/2024  17:51            71,001 tssresults.jpg
+14/05/2024  17:51           316,419 visit.jpg
+14/05/2024  18:53         1,169,063 workout.jpg
+              51 File(s)     12,651,794 bytes
+               0 Dir(s)  167,548,063,744 bytes free

@@ -1,0 +1,46 @@
+﻿' --------------------------------------------------------------------
+' Geodesix
+' Copyright © 2024 Maurice Calvert
+' 
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+' 
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+' 
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+' --------------------------------------------------------------------
+Imports System.Collections.Generic
+Imports Utilities
+Imports System.Linq
+
+Public Class DrawingFunctions
+    Inherits Methods
+
+    Private Class Range
+        ' Just to have a type name 'Range'
+    End Class
+    Private ReadOnly Property Excel As Object
+    Public Sub New(excel As Object)
+
+        Me.Excel = excel
+        Functions = {
+#INCLUDE
+        }.ToList
+    End Sub
+    Public Overrides Function Generate(method As Method) As String
+
+        Dim argf As String = String.Join(", ", method.Parameters.Select(Function(q) q.Formula))
+
+        Dim fun As String = "Draw(" & Quoted(method.Name) & "," & argf & ")"
+
+        Return fun
+
+    End Function
+
+End Class

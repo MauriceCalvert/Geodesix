@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geodesix Help - Drawing parameters</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header>
+            <titles>
+                Geodesix Help - Drawing parameters
+            </titles>
+            <hr class="titleshr" />
+        </header>
+
+        <main>
+            <h1>Fields</h1>
+            <p>
+                Each place to be drawn on the map is represented by a row in the worksheet.
+                A place is recognised by having a latitude and a longitude <em>field</em> in the header row:
+            <p>
+                <img src="fields.jpg" />
+            <p>
+                Alongside the latitude and a longitude fields are optional further fields which:
+            </p>
+            <ul>
+                <li>Fetch information from Google Maps: latitude, longitude, locality political, postal_code, ...</li>
+                <li>Specify how the place will be drawn: icon, title, ...</li>
+            </ul>
+            <p>
+                Every field has a default value, which can be overridden for each place by specifying the value in
+                the column with the field's name.
+                These field names can be inserted with the
+                <a href="fieldpicker.jpg">Insert&#8658;Field dialog</a> dialog.
+            </p>
+            <p>
+                N.B. The latitude and a longitude column field labels must be within the
+                the first 10 rows and the first 25 columns.
+            </p>
+            <h1>Setting the default values for drawing on the map</h1>
+            <p>The Toools&#8658;Drawing dialog is used to set the default drawing values:</p>
+            <img src="drawing.jpg" />
+            <table>
+                <tr>
+                    <td>align</td>
+                    <td>
+                        Alignment of icons relative to the point that they mark: <b>t</b>op, <b>l</b>eft, <b>b</b>ottom, <b>r</b>ight (a single character suffices).
+                    </td>
+                </tr>
+                <tr>
+                    <td>arrow</td>
+                    <td>
+                        <a href="https://fonts.google.com/icons">Google Material Symbol</a> used to draw arrows on lines.
+                        The arrrow is rotated to point along the line; for this to work the chosen symbol must
+                        be pointing upwards at zero degrees, replace spaces in the name with underscores. Example: Expand_Less
+                    </td>
+                </tr>
+                <tr>
+                    <td>arrowColor</td>
+                    <td>
+                        Either a known-colour name (Red, Lime, Blue, ...) or a hexadecimal code with a hashsign (#FF0000, #00FF00, #0000FF)
+                    </td>
+                </tr>
+                <tr>
+                    <td>arrowSize</td>
+                    <td>
+                        A number in pixels, 50 is a good starting point
+                    </td>
+                </tr>
+                <tr>
+                    <td>Icon</td>
+                    <td>
+                        Glyph, text or HTML to draw
+                        <ul>
+                            <li>
+                                An old-fashioned icon image or SVG, for example:
+                                <a href="http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png">
+                                    <monospace>http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png</monospace>
+                                </a>
+                            </li>
+                            <li>
+                                A text that will be displayed in a box, as the icon. It can include HTML: <monospace>This is a good restaurant!</monospace>
+                                The text will be broken into lines to make a nice rectangular paragraph.
+                            </li>
+                            <li>Arbitrary HTML, which will be drawn as-is</li>
+                            <li>
+                                '$' followed ba a Google Material Symbol name: <monospace>$Push_Pin</monospace> (case-sensitive!).
+                                Replace spaces in the name with underscores: 'Push Pin' is written '$Push<b>_</b>Pin'
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>iconColor</td>
+                    <td>
+                        Either a known-colour name (Red, Lime, Blue, ...) or a hexadecimal code with a hashsign (#FF0000, #00FF00, #0000FF).
+						8-digit hexadecimal colours with transparency are supported (50% Red = #FF000088).
+                    </td>
+                </tr>
+                <tr>
+                    <td>iconSize</td>
+                    <td>
+                        The size of the icon in pixels. 35 is a good starting point.
+                    </td>
+                </tr>
+                <tr>
+                    <td>lineTitle</td>
+                    <td>
+                        The text to display when hovering over a line; the text will be broken into lines to make a nice rectangular paragraph.
+                        Alternatively, arbitrary HTML, which will be drawn as-is
+                    </td>
+                </tr>
+                <tr>
+                    <td>strokeColor</td>
+                    <td>
+                        The colour used to draw lines.
+                        Either a known-colour name (Red, Lime, Blue, ...) or a hexadecimal code with a hashsign (#FF0000, #00FF00, #0000FF)
+						8-digit hexadecimal colours with transparency are supported (50% Red = #FF000088).
+                    </td>
+                </tr>
+                <tr>
+                    <td>strokeOpacity</td>
+                    <td>
+                        The opacity used to draw lanes, a fraction between 0.0 and 1.0. 0.0 = Transparent, 1.0 = Opaque
+                    </td>
+                </tr>
+                <tr>
+                    <td>strokeWeight</td>
+                    <td>
+                        The thickness of lines in pixels
+                    </td>
+                </tr>
+                <tr>
+                    <td>symbols</td>
+                    <td>
+                        The <a target="_blank" href="https://fonts.google.com/icons">Material Symbol Style</a>: Outlined, Rounded or Sharp
+                    </td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td>
+                        The text to display in an InfoBox when the mouse is hovered over the icon;
+                        the text will be broken into lines to make a nice rectangular paragraph.
+                        Alternatively, arbitrary HTML, which will be drawn as-is
+                    </td>
+                </tr>
+            </table>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+#Method	Name:String	Type:Type	Description:String	Returns:String	
+#Parameter	Name:String	Type:Type	Description:String	Default:String	Choices:List
+Method	Area	Double	Get the area of a polygon	Square metres	
+Parameter	points	Range	A N*2 array of Latitudes and Longitudes		
+					
+Method	Azimuth	Double	Get the bearing from one place to another	Bearing or a 2-cell array initial and final bearing	
+Parameter	originlat	Double	Latitude of origin		{-90,90}
+Parameter	originlong	Double	Longitude of origin		{-180,180}
+Parameter	destlat	Double	Latitude of destination		{-90,90}
+Parameter	destllong	Double	Longitude of destination		{-180,180}
+					
+Method	Colour	String	Convert a colour to hexadecimal	Hexadecimal colour	
+Parameter	colour	String	A colour name or 6-character hex colour code		
+Parameter	format	String	A combination of letters #ARGB	#RGB	
+					
+Method	Displace	Double	Find a point that is offset by a bearing and a distance	LatLon or a 2-cell array lat lon	
+Parameter	latitude	Double	Latitude of origin		{-90,90}
+Parameter	longitude	Double	Longitude of origin		{-180,180}
+Parameter	bearing	Double	Bearing of offset		{-360,360}
+Parameter	distance	Double	Distance to offset		{0}
+					
+Method	Distance	Double	Get the straight-line distance between 2 points	Distance in meters	
+Parameter	originlat	Double	Latitude of origin		{-90,90}
+Parameter	originlong	Double	Longitude of origin		{-180,180}
+Parameter	destlat	Double	Latitude of destination		{-90,90}
+Parameter	destlLong	Double	Longitude of destination		{-180,180}
+					
+Method	DMS	Double	Convert Degrees-Minutes-Seconds to degrees	Decimal degrees	
+Parameter	dms	String	A Latitude/Longitude in Degrees° Minutes"" Seconds'		
+					
+Method	Geocode	String	Get information about a place	Field value	
+Parameter	request	String	Field name of information		
+Parameter	location	String	Place to find		
+					
+Method	Heat	String	Get a colour from a range of values to make a HeatMap	Hexadecimal colour	
+Parameter	value	Double	A value in the range minimum .. maximum		
+Parameter	minimum	Double	Lowest value of range		
+Parameter	maximum	Double	Highest value of range		
+					
+Method	PlusCodeFrom	String	Convert lat/long to Google PlusCodes	PlusCode	
+Parameter	latitude	Double	A Latitude to convert to a PlusCode		{-90,90}
+Parameter	longitude	Double	A Longitude to convert to a PlusCode		{-180,180}
+					
+Method	PlusCodeTo	Double	Convert a Google PlusCode to lat/long	Lat or Long	
+Parameter	pluscode	String	A PlusCode to convert to Latitude or Longitude		
+Parameter	convertto	String	What to convert PlusCode to: 'Latitude'		{"Latitude","Longitude"}
+					
+Method	Regex	String	Parse a string with a regular expression	Parsed value	
+Parameter	string	String	A string to parse		
+Parameter	pattern	String	A regular expression		
+Parameter	group	Integer	Index of group to retrieve: 0 ..N		
+Parameter	item	Integer	Index of item in group: 0 ..N		
+					
+Method	Script	String	Execute a Javascript function on the browser in the Geodesix pane		
+Parameter	function	String	Any Javascript function		
+					
+Method	Travel	Double	Get travelling distances and times	Distance in metres or Time in days	
+Parameter	type	String	Distance or Duration		{"Distance","Duration"}
+Parameter	origin	String	Origin, name of a place		
+Parameter	destination	String	Destination, name of a place		
+Parameter	mode	String	Mode of travel		{ "Transit","Driving","Walking","Bicycling"}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geodesix Help - Travelling Salesman Solver</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header>
+            <titles>
+                Geodesix Help - Travelling Salesman Solver
+            </titles>
+            <hr class="titleshr" />
+        </header>
+
+        <main>
+            <p>
+                Given a list of places, this solver attempts to find the shortest route to visit them
+                all.
+            </p>
+            <h1>Setup</h1>
+            Each row of the worksheet must have:
+            <ul>
+                <li>A unique place name</li>
+                <li>A Latitude</li>
+                <li>A Longitude</li>
+                <li>
+                    <p>A TravellingSalesman formula that refers to the 3 fields above:</p>
+                    <img src="tssformula.jpg" />
+                </li>
+            </ul>
+            <p><a href="tss.xlsx">Open a sample TSS workbook</a> to play with.</p>
+            <h1>Solving</h1>
+            <p>Start the TSS solver</p>
+            <img src="tssform.jpg" />
+            <p>
+                and click Find Route. The solver will search for routes using the technique of
+                <a href="https://en.wikipedia.org/wiki/Simulated_annealing">Simulated Annealing</a>.
+                When it completes, the TSS Formulas' values will be updated and the results are displayed:
+            </p>
+            <img src="tssresults.jpg" />
+            <p>OK will sort the worksheet on these formulas, Cancel closes the solver without sorting.</p>
+            <h1>Advanced options</h1>
+            <p>The Advanced button reveals the regression parameters:</p>
+            <ul>
+                <li>Initial Temperature. Increase this by factors of 10 to select wilder initial values. Try 1'000'000.</li>
+                <li>Cooling Rate. The closer this is to 1.000, the slower the search, but better results. Try 0.999999 (and be patient).</li>
+                <li>
+                    Absolute Temperature. The stopping value, the smaller the value, the longer the final stages of the search. 0.1 for quick searches, 0.000001
+                    for a drawn-out search.
+                </li>
+            </ul>
+            <h1>Caveats</h1>
+            <p>
+                This solver works quite well for a moderate number of places (up to a hundred or so).
+                To find reasonable solutions for thousands or more places will take a long time; 
+                <a href="https://dictionary.cambridge.org/dictionary/english/ymmv#">YMMV</a>
+            </p>
+        </main>
+    </div>
+</body>
+</html>

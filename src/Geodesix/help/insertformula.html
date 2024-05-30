@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geodesix Help - Insert Formula</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header>
+            <titles>
+                Geodesix Help - Insert Formula
+            </titles>
+            <hr class="titleshr" />
+        </header>
+
+        <main>
+            <p>Insert Formula provides guided prompts to create Geodesix formulas.</p>
+            <p>The first dialog is used to choose the formula:</p>
+            <div>
+                <img src="insertfunction.jpg" />
+            </div>
+            <p>Clicking a function name shows the second dialog to enter the arguments:</p>
+            <div>
+                <img src="insertgeocode.jpg" />
+            </div>
+            <p>The arguments' values can be populated in several ways:</p>
+            <ul>
+                <li>Picking a value from the dropdown.</li>
+                <li>
+                    Clicking on the desired cell. Here, when the dialog opened, C1 and A2 were clicked.
+                        Notice the form the cell references: Cells <em>above</em> the formula - Latitude - have absolute row;
+                    cells <em>left</em> of the formula have absolute column. This makes it easier to extend formulas.
+                </li>
+                <li>Typing a value. It will be interpreted as an Excel name, if it exists.
+                If it doesn't, it will be interpreted as a string.</li>
+            </ul>
+            <p>
+                Whenever the focus changes, the values are validated and errors are highlighted in red:
+            </p>
+            <div>
+                <img src="displacemistake.jpg" />
+            </div>
+            <p>
+                A latitude cannot exceed 90°. The longitude has a comma instead of decimal. A bearing cannot exceed 360°.
+                A distance cannot be negative.
+            </p>
+</main>
+    </div>
+</body>
+</html>

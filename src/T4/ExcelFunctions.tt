@@ -1,0 +1,30 @@
+﻿<#@ template debug="true" hostspecific="true" language="VB" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Microsoft.VisualBasic" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+<#@ import namespace="System.Text" #>
+<#@ output extension=".vb" #>
+<#@ assembly name="EnvDTE" #>
+<#@ import namespace="EnvDTE" #>
+
+<# 
+    Dim myfilename as string = Me.Host.TemplateFile
+    Dim mypath as string = Path.GetDirectoryName(myfilename)
+    Dim gf As New GeneratorFunctions(
+        me, 
+        Path.Combine(mypath, "ExcelFunctionsMaster.vb"), 
+        Path.Combine(mypath, "ExcelFunctions.txt"),
+        Path.Combine(mypath, "ExcelFunctions.vb")
+    )
+    gf.Run()
+    Dim result as String = gf.Result
+    WriteLine(result)
+#>
+<#@ include file="generator.t4" #>
+<#@ include file="line.t4" #>
+<#@ include file="row.t4" #>
+<#@ include file="template.t4" #>
+<#@ include file="generatorfunctions.t4" #>

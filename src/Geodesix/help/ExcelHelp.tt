@@ -1,0 +1,31 @@
+﻿<#@ template debug="true" hostspecific="true" language="VB" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Microsoft.VisualBasic" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+<#@ import namespace="System.Text" #>
+<#@ output extension=".html" #>
+<#@ assembly name="EnvDTE" #>
+<#@ import namespace="EnvDTE" #>
+
+<# 
+    Dim myfilename as string = Me.Host.TemplateFile
+    Dim mypath as string = Path.GetDirectoryName(myfilename)
+    Dim gf As New GeneratorHelp(
+        "Geodesix Help - Excel Functions",
+        me, 
+        Path.Combine(mypath, "..\Functions\HelpMaster.html"), 
+        Path.Combine(mypath, "..\Functions\ExcelFunctions.txt")
+    )
+    gf.Run()
+    Dim result as String = gf.Result
+    WriteLine(result)
+#>
+<#@ include file="..\t4\generator.t4" #>
+<#@ include file="..\t4\line.t4" #>
+<#@ include file="..\t4\row.t4" #>
+<#@ include file="..\t4\template.t4" #>
+<#@ include file="..\Functions\generatorhelp.t4" #>
+

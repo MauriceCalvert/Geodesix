@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geodesix Help - Mapping techniques</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header>
+            <titles>
+                Geodesix Help - Mapping techniques
+            </titles>
+            <hr class="titleshr" />
+        </header>
+
+        <main>
+            <h1>Reducing the number of places to display</h1>
+            <p>
+                GPS tracks frequently have a large number of places.
+                When displayed as-is this can produce a cluttered map.
+                Several techniques can be applied to deal with this.
+            </p>
+            <h2>Filtering at import</h2>
+            <p>
+                <a href="templateeditor.html">Templates</a> can have Skip conditions to
+                select only relevant data. For example, skipping visits when moving less than
+                100 metres or visits less than 15 minutes:
+            </p>
+            <img src="techniqueskipshort.jpg" />
+            <p>
+                Notice the syntax for date and timespan constants.
+                Also, the use of 'previous' variables <b>_</b>Latitude and <b>_</b>Longitude
+                in the Distance formula.
+            </p>
+            <p>Similarly, Skip on speed < 150Km/h:</p>
+            <img src="techniquesspeed.jpg" />
+            <p>extracts only flights:</p>
+            <img src="techniquesflying.jpg" />
+
+            <h2>Filtering with Excel</h2>
+            <p>
+                Geodesix only imports rows that are visible; hiding unwanted rows
+                prevents them from being drawn on on the map. Adding columns for speed,
+                duration, etc. allow filtering on the same base data.
+            </p>
+            <h2>Reduce icon size</h2>
+            <p>
+                When mapping output from fitness apps, it is the paths that are of
+                interest and not the icons themselves. This can be acheived with Tools&#8658;Drawing
+                and setting the iconSize to a small value.
+            </p>
+            <h1>Sorting places with references to preceding rows</h1>
+            <p>
+                When referring to the preceding row, to calculate a distance or time,
+                removing rows or sorting the data will make invalid references:
+            </p>
+            <img src="techniquessort1.jpg" />
+            <p>This can be fixed by using Excel's Offset function:</p>
+            <img src="techniquessort2.jpg" />
+        </main>
+    </div>
+</body>
+</html>

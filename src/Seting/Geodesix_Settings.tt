@@ -1,0 +1,14 @@
+﻿<#@ template debug="true" hostspecific="true" language="VB" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Microsoft.VisualBasic" #>
+<#@ output extension=".vb" #>
+<#@ assembly name="EnvDTE" #>
+<#@ import namespace="EnvDTE" #>
+<# 
+	Dim settings = "GeodesixSettings"
+	Dim folder = "Geodesix"
+#>
+<#@ include file="settings.t4" #>

@@ -1,0 +1,20 @@
+# TakeoutActivity - This is a tab-delimited file
+# Rule type	Name	Source	
+Notes	"{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2057{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\*\\generator Riched20 16.0.17531}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+RulePath	startTimestamp	DateTime	True	timelineObjects[*].activitySegment.duration.startTimestamp	01/04/2023 09:03:25
+RulePath	endTimestamp	DateTime	True	timelineObjects[*].activitySegment.duration.endTimestamp	01/04/2023 09:34:54
+RulePath	activityType	String	True	timelineObjects[*].activitySegment.activityType	WALKING
+RulePath	confidence	String	True	timelineObjects[*].activitySegment.confidence	HIGH
+RulePath	startlatitudeE	Int64	False	timelineObjects[*].activitySegment.startLocation.latitudeE7	461706632
+RulePath	startlongitudeE	Int64	False	timelineObjects[*].activitySegment.startLocation.longitudeE7	61615299
+RulePath	finishlatitudeE	Int64	False	timelineObjects[*].activitySegment.endLocation.latitudeE7	461669658
+RulePath	finishlongitudeE	Int64	False	timelineObjects[*].activitySegment.endLocation.longitudeE7	61853768
+RuleExpression	Duration	TimeSpan	True	endtimestamp-starttimestamp
+RuleExpression	LatitudeA	Double	True	startlatitudee/10000000.0
+RuleExpression	LongitudeA	Double	True	startlongitudee/10000000.0
+RuleExpression	LatitudeB	Double	True	finishlatitudee/10000000.0
+RuleExpression	LongitudeB	Double	True	FinishLongitudee/10000000.0
+RuleExpression	TraveledKm	Double	True	Distance(LatitudeA,LongitudeA,LatitudeB,LongitudeB)/1000.0
+RuleSkip	ccd	Boolean	False	confidence="LOW"
+RuleSkip	cby	Boolean	False	LatitudeA=0 or LongitudeA=0
+RuleSort	StartTimeStamp			

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geodesix Help - Options</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header>
+            <titles>
+                Geodesix Help - Options
+            </titles>
+            <hr class="titleshr" />
+        </header>
+
+        <main>
+            <p>The Options dialog is used to set advanced options.</p>
+
+            <h1>API Key Tab</h1>
+            <img src="optionskey.jpg" />
+            <p>
+                Used to supply the Google Maps API key, which is free.
+                Geodesix requires this to get geographical information from Google.
+                <a href="apikey.html">Instructions</a>
+            </p>
+
+            <h1>Geocoder Tab</h1>
+            <img src="optionsgeocoder.jpg" />
+            <p>
+                Used to debug Region and Language problems with the Geocoder.
+            </p>
+
+            <h1>Advanced Tab</h1>
+            <img src="optionsadvanced.jpg" />
+            <p>
+                Used to debug problems with the proxy setup.
+            </p>
+
+            <p>
+                Cache statistics. When Geodesix retrieves information from Google, the
+                data is cached and slyly saved inside the workbook. Purge Cache empties this cache
+                (and all data will be re-requested).
+            </p>
+            <p>Reset All Options. Revert all options to the installation defaults.
+            This does not change drawing settings, which are specific to each workbook.</p>
+            <p>
+                Debug mode. Play with this at your own risk.
+                Switches on debug logging, which enables debugging tools on the ribbon and 
+                writes reams of trace information to <monospace>My Documents\Geodesix\GeodesiX.log</monospace>.
+                Takes effect when Excel is restarted and a warning will be displayed until debugging is switched off.
+                This is <em>expensive</em> and Excel will become sluggish.
+            </p>
+            <h1>About Tab</h1>
+            Hopefully self-explanatory.
+        </main>
+    </div>
+</body>
+</html>

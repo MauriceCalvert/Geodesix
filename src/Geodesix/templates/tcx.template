@@ -1,0 +1,7 @@
+# tcx - This is a tab-delimited file
+# Rule type	Name	Source	
+Notes	"{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2057{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\*\\generator Riched20 16.0.17126}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+RulePath	Time	DateTime	True	TrainingCenterDatabase.Activities.Activity.Lap.Track.Trackpoint[*].Time	09/05/2024 07:06:46
+RulePath	Latitude	Double	True	TrainingCenterDatabase.Activities.Activity.Lap.Track.Trackpoint[*].Position.LatitudeDegrees	46.170619
+RulePath	Longitude	Double	True	TrainingCenterDatabase.Activities.Activity.Lap.Track.Trackpoint[*].Position.LongitudeDegrees	6.161755
+RulePath	Altitude	Double	True	TrainingCenterDatabase.Activities.Activity.Lap.Track.Trackpoint[*].AltitudeMeters	422.351935499757

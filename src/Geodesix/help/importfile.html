@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geodesix Help - Importing structured data</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header>
+            <titles>
+                Geodesix Help - Importing structured data
+            </titles>
+            <hr class="titleshr" />
+        </header>
+
+        <main>
+            <p>
+                The Import File dialog is used to import structured data, either in JSON or XML formats.
+            </p>
+            <img src="importfile.jpg" />
+            <p>
+                Select either "Import a single" <em>filename</em> or select "Import multiple files" and choose a <em>folder</em> -
+                all files the folder and subfolders that match the <em>filter</em> will be imported.
+                The data format (JSON or XML) is determined automatically.
+            </p>
+            <p>
+                The Template defines how the data will be transformed. Select a template and click Import to load the file.
+                <a href="templateeditor.html">Read about managing templates.</a>
+            </p>
+            <h1>Clustering</h1>
+            <p>
+                GPS tracks often have a huge number of points. Points can be aggregated (collapsed) into single
+                points which are within a given radius. For example, when the tracks represent driving to different cities, the
+                desired result could be a single point for each city visited.
+            </p>
+            <p>
+                To do this, select
+                <em>Cluster Results</em> and supply a distance in kilometres that is a little larger than the radius of a city,
+                maybe 10Km. All the points will be extracted and then
+                grouped by clusters of the chosen radius; each group will be output as a single point, either:
+            </p>
+            <ul>
+                <li>If there is a field 'Duration' with datatype 'TimeSpan', the point will be the one with the longest duration</li>
+                <li>Otherwise, the one that is closest to the centre of the group</li>
+            </ul>
+
+            <h1>Formats</h1>
+            <p>
+                Note: Whilst the primary use is for files containing geographical data, all derived filetypes can also be imported:
+            <p>
+                JSON formats:
+                <ul>
+                    <li><a target="_blank" href="https://geojson.org/">GeoJSON</a></li>
+                    <li><a target="_blank" href="https://en.wikipedia.org/wiki/JSON-RPC">JSON-RPC</a></li>
+                    <li><a target="_blank" href="https://en.wikipedia.org/wiki/JSONML">JSONML</a></li>
+                </ul>
+            <p>
+            </p>
+            <p>
+                XML formats:
+                <ul>
+                    <li>
+                        <a target="_blank" href="https://en.wikipedia.org/wiki/RSS">RSS</a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://en.wikipedia.org/wiki/RSS">SVG</a>
+                    </li>
+                    <li><a target="_blank" href="https://en.wikipedia.org/wiki/Keyhole_Markup_Language">KML</a></li>
+                </ul>
+                etc.
+            </p>
+        </main>
+    </div>
+</body>
+</html>

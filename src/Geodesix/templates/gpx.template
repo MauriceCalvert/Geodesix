@@ -1,0 +1,7 @@
+# gpx - This is a tab-delimited file
+# Rule type	Name	Source	
+Notes	"{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2057{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\*\\generator Riched20 16.0.17126}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+RulePath	latitude	Double	True	gpx.trk.trkseg.trkpt[*].@lat	46.170991
+RulePath	longitude	Double	True	gpx.trk.trkseg.trkpt[*].@lon	6.162139
+RulePath	altitude	Double	True	gpx.trk.trkseg.trkpt[*].ele	469
+RulePath	time	DateTime	True	gpx.trk.trkseg.trkpt[*].time	13/05/2024 07:00:56

@@ -1,0 +1,67 @@
+﻿<#+
+Public MustInherit Class Row
+
+    Public Sub New(generator As Generator)
+
+        Me.Generator = generator
+
+    End Sub
+
+    Public ReadOnly Property Generator As Generator
+
+    Default Public ReadOnly Property Item(key As String) As String
+        Get
+            Dim result As String = "Nothing"
+            _Keys.TryGetValue(key, result)
+            Return result
+        End Get
+    End Property
+
+    Default Public ReadOnly Property Item(index As Integer) As String
+        Get
+            Dim result As String = "Nothing"
+            _Keys.TryGetValue(Items(index), result)
+            Return result
+        End Get
+    End Property
+
+    Private _Items As New List(Of String)
+
+    Public Property Items As List(Of String)
+        Get
+            Return _Items
+        End Get
+        Protected Set(value As List(Of String))
+            _Items = value
+        End Set
+    End Property
+
+    Private _Keys As New Dictionary(Of String, String)
+
+    Public Property Keys As Dictionary(Of String, String)
+        Get
+            Return _Keys
+        End Get
+        Protected Set(value As Dictionary(Of String, String))
+            _Keys = value
+        End Set
+    End Property
+
+    Private _Noun As String
+
+    Public Property Noun As String
+        Get
+            Return _Noun
+        End Get
+        Protected Set(value As String)
+            _Noun = value
+        End Set
+    End Property
+
+    Public Overrides Function ToString() As String
+
+        Return Noun & "(" & String.Join(", ", Keys.Select(Function(q, i) q.Key & "=" & q.Value)) & ")"
+
+    End Function
+End Class
+#>

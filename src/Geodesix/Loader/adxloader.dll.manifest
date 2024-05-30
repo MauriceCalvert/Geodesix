@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <assemblyIdentity name="Geodesix, PublicKeyToken=915247c7ff1d355b" xllClass="" imageRuntimeVersion="v4.0.30319" />
+  <loaderSettings generateLogFile="true" shadowCopyEnabled="false" privileges="user" configFileName="app.config" />
+</configuration>

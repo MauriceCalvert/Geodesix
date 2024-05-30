@@ -1,0 +1,14 @@
+# TakeoutVisit - This is a tab-delimited file
+# Rule type	Name	Source	
+Notes	"{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2057{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\*\\generator Riched20 16.0.17531}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+RulePath	startTimestamp	DateTime	True	timelineObjects[*].placeVisit.duration.startTimestamp	01/11/2023 00:11:48
+RulePath	endTimestamp	DateTime	True	timelineObjects[*].placeVisit.duration.endTimestamp	01/11/2023 02:00:12
+RulePath	Title	String	True	timelineObjects[*].placeVisit.location.name	Tōfuku-ji Temple
+RulePath	Address	String	True	timelineObjects[*].placeVisit.location.address	日本、〒605-0981 京都府京都市東山区本町１５丁目７７８
+RulePath	latitudeE	Int64	False	timelineObjects[*].placeVisit.location.latitudeE7	349760250
+RulePath	longitudeE	Int64	False	timelineObjects[*].placeVisit.location.longitudeE7	1357737627
+RuleExpression	Latitude	Double	True	LatitudeE / 10000000.0
+RuleExpression	Longitude	Double	True	LongitudeE / 10000000.0
+RuleExpression	Duration	TimeSpan	True	endtimestamp-starttimestamp
+RuleExpression	Moved	Double	True	Distance(_Latitude, _Longitude, Latitude, Longitude)
+RuleSort	startTimeStamp			

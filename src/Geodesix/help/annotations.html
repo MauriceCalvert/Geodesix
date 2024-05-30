@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geodesix Help - Annotations: Icons, Markers, Legends and Lines</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="help.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header>
+            <titles>
+                Geodesix Help - Annotations: Icons, Markers, Legends and Lines
+            </titles>
+            <hr class="titleshr" />
+        </header>
+
+        <main>
+            <p>Annotations drawn on the map can be completely at will:</p>
+            <img src="annotations1.jpg" />
+            <p>
+                Open
+                <a href="annotations.xlsx">annotations.xlsx</a>
+                to to view the workbook used to draw this map.
+                (It's drawn in the middle of the Pacific, to avoid the distraction of the map itself.)
+            </p>
+            <p>
+                Hover over each of the annotations (icons, markers, lines, etc.).
+                Observe the field names in row 1 and the values in the columns below,
+                to see how the annotations are drawn.
+            </p>
+            <p>
+                For the brave, the CSS styles used for formatting can be modified by editing
+                <a href="../templates/goverlay.css">goverlay.css</a>.
+            </p>
+            <p>The 'distance' column creates a text annotation on the middle of the line, usually
+            the result of a <monospace>Distance</monospace> formula, as in cell G3.</p>
+            <p>The 'arrow' column determines the Material Symbol to draw the arrow, it is positioned 20% of the way from the line's start.</p>
+            <p>
+                The legend is created with 'free' in the icon column; the legend's content, in cell O6,
+                contains the HTML to draw the legend. The mandatory class 'gofree' provides the formatting.
+                The style must contain positioning, using a combination of top / left / right / bottom style elements.
+                For example, to position a legend 5 pixels from bottom-right: <monospace>style="bottom: 5px; right:5px"</monospace>.
+                See
+                <a href="chopes.xlsm">chopes.xlsm</a> and <a href="europe.xlsm">europe.xlsm</a> for detailed examples.
+            </p>
+            <p>Notice that Classic icons are always attached to the point; they cannot be aligned.</p>
+            <p>As there are many columns, here is the worksheet transposed:</p>
+            <table>
+                <tr><th></th><th>Material Icon</th><th>Classic Icon</th><th>Text Icon</th><th>Default Icon</th><th>Legend</th></tr>
+                <tr><td>Latitude</td><td>33</td><td>31</td><td>32</td><td>30</td><td></td></tr>
+                <tr><td>Longitude</td><td>-137</td><td>-135</td><td>-138</td><td>-136</td><td></td></tr>
+                <tr><td>align</td><td>top</td><td>bottom</td><td>left</td><td></td><td></td></tr>
+                <tr><td>arrow</td><td></td><td>Expand_Less</td><td>Stat_2</td><td></td><td></td></tr>
+                <tr><td>arrowColor</td><td></td><td>White</td><td>Orange</td><td></td><td></td></tr>
+                <tr><td>arrowSize</td><td></td><td>32</td><td>48</td><td></td><td></td></tr>
+                <tr><td>distance</td><td></td><td>291.35974599657</td><td>305.799725069789</td><td></td><td></td></tr>
+                <tr><td>icon</td><td>$Home</td><td>http://maps.google.com/mapfiles /kml/shapes/caution.jpg</td><td>Friends, Romans, countrymen, lend me your ears; I come to bury Caesar, not to praise him.</td><td></td><td>free</td></tr>
+                <tr><td>iconColor</td><td>cyan</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>iconSize</td><td>48</td><td>32</td><td>24</td><td></td><td></td></tr>
+                <tr><td>lineTitle</td><td></td><td>This 291 Kilometre line is from Home to Caution</td><td>I am a faint line because my opacity is 0.2</td><td>This line links Marc Anthony's speech to the push-pin at the bottom</td><td></td></tr>
+                <tr><td>strokeColor</td><td></td><td>cyan</td><td>red</td><td></td><td></td></tr>
+                <tr><td>strokeOpacity</td><td></td><td></td><td>0.2</td><td></td><td></td></tr>
+                <tr><td>strokeWeight</td><td></td><td>3</td><td>4</td><td></td><td></td></tr>
+                <tr><td>title</td><td>I am a Material Icon, aligned top, above the referenced point</td><td>I am a  classic icon aligned bottom, below the referenced point</td><td>I am a text icon, aligned left. Both this text and the icon text have been split into lines to make a nice rectangular box.</td><td>I am a lone pushpin with all the default drawing settings</td><td>This is a legend</td></tr>
+            </table>
+        </main>
+    </div>
+</body>
+</html>

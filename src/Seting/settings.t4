@@ -1,0 +1,91 @@
+﻿<# 
+	Dim fileName = Me.Host.ResolvePath($"{settings}.txt")  
+	Dim variables = File.ReadLines(filename)  
+	dim templatename = Path.GetFileNameWithoutExtension(Host.TemplateFile)
+#>
+Imports System.Collections.Generic
+Imports System.Linq
+Imports Utilities
+Public Class <#=settings#>
+	Inherits SettingsBase
+
+	Public Sub New()
+		MyBase.New("<#=folder#>")
+	End Sub
+
+<#   
+	dim inits as new list(of string)
+	dim handlers as new list(of string)
+	dim adds as new list(of string)
+
+	For Each line As String In variables
+		if line.StartsWith("#") then
+			continue for
+		end if	
+		if line.trim()="" then
+			continue for
+		end if	
+		dim words() as string = line.Split(Chr(9))
+		for i as integer = 0 to words.count - 1
+			words(i) = words(i).trim
+		next i
+		dim name as string = words(0)
+		dim type as string = words(1)
+		dim hidden as string = words(2)
+		dim initial as string = words(3)
+		initial = quoted(initial)
+		dim description as string = "Nothing"
+		if words.count > 4  andalso words(4) <> "" Then
+			description = quoted(words(4))
+		end if	
+		dim values as string = "Nothing"
+		if words.count > 5  andalso words(5) <> ""  Then
+			values = words(5)
+			if values.StartsWith("""") orelse values.Contains("'") then
+				values = values.Trim("""")
+				values = "{" & values.replace("'","""") & "}"
+			end if	
+		end if	
+		inits.add($"Setting_{name} = New Setting(""{name}"", GetType({type}), {initial}, {description}, {hidden}, {values})")
+		handlers.add($"AddHandler Setting_{name}.Changed, AddressOf Setting_Changed")
+		adds.add($"Items.Add(""{name}"", Setting_{name})")
+#>	
+Public Setting_<#=name#> As Setting
+Public Property <#=name#> as String
+    Get
+        Return Setting_<#=name#>.Value
+    End Get
+    Set(value As String)
+        Setting_<#=name#>.Value = value
+    End Set
+End Property
+<#   
+	Next line
+#>
+Overrides Sub MakeItems()
+	_Items = New Dictionary(Of String, Setting)(StringComparer.OrdinalIgnoreCase)
+<#
+	for i as integer = 0 to inits.Count - 1
+#>
+	<#=inits(i)#>
+	<#=adds(i)#>
+	<#=handlers(i)#>
+<#
+	next i
+#>
+End Sub
+End Class
+<#+
+    Function Quoted(x As Object) As String
+
+        If TypeOf x Is String OrElse TypeOf x Is Char Then
+            If CStr(x).Contains("""") Then ' Already has quotes?
+                Return x
+            End If
+            Return """" & x.replace("""", """""") & """"
+        Else
+            Return x.ToString
+        End If
+
+    End Function
+#>

@@ -1,0 +1,150 @@
+﻿<#+
+Public Class GeneratorHelp
+    Inherits Generator
+
+    Public Sub New(title As String,
+                   tt as TextTransformation,
+                   masterfile As String,
+                   templatefile As String,
+                   optional subfunction as string = "")
+
+        MyBase.New(title, tt, masterfile, templatefile, subfunction)
+
+    End Sub
+
+    Public Overrides Sub Prologue()
+
+    End Sub
+
+    Public Overrides Sub Body(line As Line)
+
+        Select Case line.Noun
+
+            Case "Method"
+                FlushMethod
+                Method = line
+
+            Case "Parameter"
+                Method.Children.Add(line)
+
+            Case "SubMethod"
+                Method.Children.Add(line)
+
+        End Select
+    End Sub
+
+    Private Method As Line
+    Private Methods As New List(Of Line)
+    Private Jumps as String = "Jump to"
+
+    Public Overrides Sub Epilogue()
+
+        FlushMethod
+        WriteLine("<p id=""top"">" & Jumps & "</p>")
+
+        Dim hr as String = ""
+
+        For m As Integer = 0 To Methods.Count - 1
+
+            Method = Methods(m)
+            Dim children As Integer = Method.Children.Count
+            Dim methodname As String = $"{Method("Name")}"
+            Dim title As String
+            If subfunction = "" Then
+                title = $"{methodname} <normal>function</normal>"
+            Else
+                title = $"<normal>{subfunction} </normal>{methodname}<normal> function</normal>"
+            End If
+            WriteLine($"{hr}<h1 id=""{methodname}"">{title}</h1>")
+            hr = "<hr />"
+
+            WriteLine($"<indent>{Method("Description")}.</indent>")
+
+            WriteLine("<h2>Syntax</h2>")
+
+            If subfunction <> "" Then
+                Write($"  <indent><monospace>{subfunction}('{methodname}'")
+                If Method.Children.Count > 0 then
+                    write(", ")
+                End If
+            Else
+                Write($"  <indent><monospace>{methodname}(")
+            End if  
+
+            For p As Integer = 0 To Method.Children.Count - 1
+                Dim parameter As Line = Method.Children(p)
+                Dim pcomma As String = If(p = children - 1, "", ", ")
+                Write($"{parameter("Name")}{pcomma}")
+            Next
+            WriteLine(")</monospace></indent>")
+
+            If Method("Returns") <> "" Then
+                WriteLine($"<h2>Returns</h2><returns>{Method("Type")}, {Method("Returns")}.</returns>")
+            End If
+
+            If children > 0 Then
+
+                If Method.Children(0).Noun = "SubMethod" Then
+                    Dim sm as String = Method.Children(0).Items(0)
+                    WriteLine("<p>See <a href='" & sm & ".html'>" & sm & "</a></p>")
+                    Continue For
+                End If
+                WriteLine($"<h2>Arguments</h2>")
+
+                WriteLine("<arguments>")
+                WriteLine("<table><tr><th>Name</th><th>Type</th><th>Description</th></tr>")
+
+                For p As Integer = 0 To Method.Children.Count - 1
+
+                    Dim parameter As Line = Method.Children(p)
+
+                    Dim choices as String = parameter("Choices")
+                    choices = choices.Trim({"{"c, "}"c})
+
+                    If Not String.IsNullOrWhiteSpace(choices) Then
+
+                        Dim choicelist As String() = choices.Split(",")
+
+                        If IsNumeric(choicelist(0)) Then
+                            Select Case choicelist.Length
+                                Case 1
+                                    choices = $" Must be {choicelist(0)} or more."
+                                Case 2
+                                    choices = $" Must be between {choicelist(0)} and {choicelist(1)}."
+                                Case Else
+                            End Select
+                        Else
+                            choices = String.Join(", ", choicelist.Select(Function(q) q.ToString))
+                            choices = $" Must be one of {choices}."
+                        End If
+                    End If
+
+                    WriteLine($"<tr><td>{parameter("Name")}</td><td>{parameter("Type")}</td><td>{parameter("Description")}. {choices}</td></tr>")
+                Next
+                WriteLine("</table>")
+                WriteLine("</arguments>")
+                Dim example as String = Method("Example")
+                If example <> "" Then
+                    WriteLine($"<h2>Example</h2><example>{example}</example>")
+                End If
+
+                WriteLine("<p><a href=""functions.xlsx"">Open the example functions workbook</a></p>")
+                WriteLine("<p><a href=""#top"">Back to top</a></p>")
+                WriteLine("")
+            End If
+        Next
+
+    End Sub
+
+    Private Sub FlushMethod()
+
+        If Method IsNot Nothing Then
+            Methods.Add(Method)
+            Dim name as string = Method("Name")        
+            Jumps = Jumps & "&nbsp; <a href=#" & name & ">" & name & "</a>"
+            Method = Nothing
+        End If
+
+    End Sub
+
+End Class#>

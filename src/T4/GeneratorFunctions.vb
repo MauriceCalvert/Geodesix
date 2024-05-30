@@ -1,0 +1,64 @@
+﻿Imports System.Text
+
+Public Class GeneratorFunctions
+    Inherits Generator
+
+    Public Sub New(masterfile As String,
+                   templatefile As String,
+                   outputfile As String)
+
+        MyBase.New(masterfile, templatefile, outputfile)
+
+    End Sub
+    Public Overrides Sub Prologue()
+
+    End Sub
+
+    Public Overrides Sub Body(line As Line)
+
+        Select Case line.Noun
+
+            Case "Method"
+                FlushMethod()
+                Method = line
+
+            Case "Parameter"
+                Method.Children.Add(line)
+
+        End Select
+    End Sub
+    Private Method As Line
+    Private Methods As New List(Of Line)
+    Public Overrides Sub Epilogue()
+
+        FlushMethod()
+
+        For m As Integer = 0 To Methods.Count - 1
+
+            Dim method As Line = Methods(m)
+
+            Write($"New Method(excel, {method.Arguments}, {{")
+
+            For p As Integer = 0 To method.Children.Count - 1
+
+                Dim parameter As Line = method.Children(p)
+
+                Dim pcomma As String = If(p = method.Children.Count - 1, "", ",")
+
+                Write($"New Parameter(excel, {parameter.Arguments}){pcomma}")
+            Next
+            Dim mcomma As String = If(m = Methods.Count - 1, "", ",")
+
+            Write($"}}){mcomma}")
+        Next
+
+    End Sub
+    Private Sub FlushMethod()
+
+        If Method IsNot Nothing Then
+            Methods.Add(Method)
+            Method = Nothing
+        End If
+
+    End Sub
+End Class
