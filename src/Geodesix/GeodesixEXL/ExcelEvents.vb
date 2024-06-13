@@ -31,7 +31,13 @@ Partial Public Class GeodesiXEXL
 
         CustomLog.Logger.Debug(MethodBase.GetCurrentMethod().Name)
 
-        MapTaskPane.Switch()
+        Try
+            MapTaskPane?.Switch()
+
+        Catch ex As Exception
+            HandleError(MethodBase.GetCurrentMethod().Name, ex)
+
+        End Try
 
     End Sub
     Private Sub ExcelEvents_WorkbookBeforeClose(sender As Object, e As ADXHostBeforeActionEventArgs) Handles adxExcelEvents.WorkbookBeforeClose
