@@ -70,7 +70,7 @@ Getting started
 
 Geodesix uses Google Maps to get geographical information. This requires an API key. 
 Obtaining a key from Google is free and it takes a couple of minutes.
-[Instructions](apikey.md).
+[Instructions](https://mauricecalvert.github.io/Geodesix/apikey.md).
 
 Download and install the latest version of GeodesixInstaller.msi from the
 [Releases page](https://github.com/MauriceCalvert/Geodesix/releases)
