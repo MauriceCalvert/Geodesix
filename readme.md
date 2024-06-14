@@ -2,68 +2,68 @@
  
 Geodesix is an add-in to display Google Maps in Excel:
 
-<a href="src/Geodesix/help/paristour.jpg" target="_blank">
-	<img style='width:800px' src="src/Geodesix/help/paristour.jpg" title="Click to enlarge" />
+<a href="https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/paristour.jpg" target="_blank">
+	<img style='width:800px' src="https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/paristour.jpg" title="Click to enlarge" />
 </a>
 
 Applications
 ============
 
-*   Exports from fitness applications [sample](src/Geodesix/help/workout.jpg)
+*   Exports from fitness applications [sample](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/workout.jpg)
 *   Forensics, to plot movements of mobile phones with cellular triangulation from CDR records
-*   Google Takeout History [sample](src/Geodesix/help/takeout.jpg)
-*   Route/trip planning and analysis [sample](src/Geodesix/help/japan.jpg)
-*   Surveying [sample](src/Geodesix/help/centralpark.jpg)
-*   Topical maps of offices, natural phenomena, ... [sample](src/Geodesix/help/chopes.html)
+*   Google Takeout History [sample](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/takeout.jpg)
+*   Route/trip planning and analysis [sample](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/japan.jpg)
+*   Surveying [sample](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/centralpark.jpg)
+*   Topical maps of offices, natural phenomena, ... [sample](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/chopes.html)
 
 Features
 ========
 
 *   Draws maps automatically for any worksheet with Latitude and Longitude columns.
 *   Icons, markers, lines, distances, popups and legends can be individually formatted.
-*   Maps can be exported as self-contained HTML files suitable for sharing [sample](src/Geodesix/help/paristour.htm).
-*   Imports structured data in JSON or XML formats with a [generic parser](src/Geodesix/help/templateeditor.jpg) for any data structure. Ready-built parsers for GeoJSON, GPX, TCX & Google Takeout.
+*   Maps can be exported as self-contained HTML files suitable for sharing [sample](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/paristour.htm).
+*   Imports structured data in JSON or XML formats with a [generic parser](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/templateeditor.jpg) for any data structure. Ready-built parsers for GeoJSON, GPX, TCX & Google Takeout.
 *   Exports to HTML, GeoJSON, KML (Google Earth) and tabbed-without-quotes
 *   Travelling Salesman Solver: Given a list of places, what is the shortest possible route that visits each place exactly once?
-*   Example workbooks, demonstrating all the functionalities. Comprehensive [Help](src/Geodesix/help/index.html)
+*   Example workbooks, demonstrating all the functionalities. Comprehensive [Help](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/index.html)
 *   Complete VBA interface.
 *   Extensive library of Excel functions for geodesics:
     
-    [Area](src/Geodesix/help/ExcelHelp.html#Area) Calculate the area of a polygon
+    [Area](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#Area) Calculate the area of a polygon
     
-    [Azimuth](src/Geodesix/help/ExcelHelp.html#Azimuth) Calculate the initial and final bearing from one point to another
+    [Azimuth](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#Azimuth) Calculate the initial and final bearing from one point to another
     
-    [Color](src/Geodesix/help/ExcelHelp.html#Color) Formats a hexadecimal Color from the ARGB components
+    [Color](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#Color) Formats a hexadecimal Color from the ARGB components
     
-    [Displace](src/Geodesix/help/ExcelHelp.html#Displace) Gets a point at a bearing and distance from another point
+    [Displace](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#Displace) Gets a point at a bearing and distance from another point
     
-    [Distance](src/Geodesix/help/ExcelHelp.html#Distance) Calculate the distance in metres between 2 latitude/longitude pairs, as the crow flies
+    [Distance](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#Distance) Calculate the distance in metres between 2 latitude/longitude pairs, as the crow flies
     
-    [DMS](src/Geodesix/help/ExcelHelp.html#DMS) Convert Degrees-Minutes-Seconds to decimal degrees
+    [DMS](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#DMS) Convert Degrees-Minutes-Seconds to decimal degrees
     
-    [Draw](src/Geodesix/help/ExcelHelp.html#Draw) Draw circles/lines/markers on the map
+    [Draw](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#Draw) Draw circles/lines/markers on the map
     
-    [Formulae](src/Geodesix/help/ExcelHelp.html#Formulae) Get the formula of a cell, showing the values
+    [Formulae](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#Formulae) Get the formula of a cell, showing the values
     
-    [Geocode](src/Geodesix/help/ExcelHelp.html#Geocode) Get Geodesic information about a place
+    [Geocode](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#Geocode) Get Geodesic information about a place
     
-    [Geodesix](src/Geodesix/help/ExcelHelp.html#Geodesix) User interface and VBA drawing functions
+    [Geodesix](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#Geodesix) User interface and VBA drawing functions
     
-    [GeoReverse](src/Geodesix/help/ExcelHelp.html#GeoReverse) Performs a reverse geocode
+    [GeoReverse](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#GeoReverse) Performs a reverse geocode
     
-    [Heat](src/Geodesix/help/ExcelHelp.html#Heat) Gets the 'temperature' of a value in the range 'min' to 'max'. The Color ranges from purple (cold) to red (hot)
+    [Heat](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#Heat) Gets the 'temperature' of a value in the range 'min' to 'max'. The Color ranges from purple (cold) to red (hot)
     
-    [JavaScript](src/Geodesix/help/ExcelHelp.html#JavaScript) Execute a JavaScript function in the map pane
+    [JavaScript](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#JavaScript) Execute a JavaScript function in the map pane
     
-    [Pluscode](src/Geodesix/help/ExcelHelp.html#Pluscode) Translate latitude & longitude to/from Pluscodes
+    [Pluscode](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#Pluscode) Translate latitude & longitude to/from Pluscodes
     
-    [Regex](src/Geodesix/help/ExcelHelp.html#Regex) Extracts strings using regular expressions
+    [Regex](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#Regex) Extracts strings using regular expressions
     
-    [TimeOffset](src/Geodesix/help/ExcelHelp.html#TimeOffset) Gets the time offset from UTC from a latitude/longitude
+    [TimeOffset](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#TimeOffset) Gets the time offset from UTC from a latitude/longitude
     
-    [TimeZone](src/Geodesix/help/ExcelHelp.html#TimeZone) Gets the time zone from UTC from a latitude/longitude
+    [TimeZone](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#TimeZone) Gets the time zone from UTC from a latitude/longitude
     
-    [Travel](src/Geodesix/help/ExcelHelp.html#Travel) Estimates distance or duration to travel from one place to another; walking, cycling, driving or transit
+    [Travel](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/ExcelHelp.html#Travel) Estimates distance or duration to travel from one place to another; walking, cycling, driving or transit
 
 Getting started
 ===============
@@ -82,4 +82,4 @@ License
     
 Open Source, [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-![](src/Geodesix/help/swissmadesoftware-logo.png)
+![](https://mauricecalvert.github.io/Geodesix/src/Geodesix/help/swissmadesoftware-logo.png)
